@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SystemGroup.Framework.Common;
+using SystemGroup.Framework.Service;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
@@ -13,15 +14,24 @@ namespace SystemGroup.General.UniversityManagement.Common
 
         public override IQueryable Project(IQueryable<Presentation> inputs)
         {
-            return from input in inputs
-                   select input;
+            var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll();
+            return from presentation in inputs
+                   join course in courses
+                       on presentation.CourseRef equals course.ID
+                   select new
+                   {
+                       presentation.ID,
+                       presentation.Capacity,
+                       CourseTitle = course.Title,
+                   };
 
         }
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Field1", "Presentaion_Field1"));
+            columns.Add(new TextColumnInfo(nameof(Presentation.CourseTitle) , "Presentation_CourseTitle"));
+            columns.Add(new EntityColumnInfo<Presentation>(nameof(Presentation.Capacity)));
         }
 
         #endregion

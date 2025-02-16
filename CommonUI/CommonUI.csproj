@@ -56,7 +56,9 @@
     <EmbeddedResource Include="Messages.Strings.resx" />
     <EmbeddedResource Include="Prerequisite.Strings.en-US.resx" />
     <EmbeddedResource Include="Prerequisite.Strings.resx" />
-    <EmbeddedResource Include="Presentation.Strings.en-US.resx" />
+    <EmbeddedResource Include="Presentation.Strings.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation.Strings.resx" />
     <EmbeddedResource Include="Semester.Strings.en-US.resx" />
     <EmbeddedResource Include="Semester.Strings.resx" />

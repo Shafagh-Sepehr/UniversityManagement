@@ -17,17 +17,25 @@ namespace SystemGroup.General.UniversityManagement.Common
     [Master(typeof(IPresentationBusiness))]
     partial class Presentation : Entity
     {
+        #region Properties
+
+        public string CourseTitle { get; set; }
+
+        #endregion
+
         #region Methods
 
-        public override string GetEntityName()
-        {
-            return "Presentaion_EntityName"; //TODO
-        }
+        
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "Presentaion_Number"));
+            columns.Add(new NumericColumnInfo(nameof(Capacity), "Presentation_Capacity", NumericType.Integer));
+            columns.Add(new TextColumnInfo(nameof(CourseTitle), "Presentation_CourseTitle"));
+            columns.Add(new ReferenceColumnInfo(nameof(CourseRef), "_"));
+            columns.Add(new ReferenceColumnInfo(nameof(SemesterRef), "_"));
+            columns.Add(new ReferenceColumnInfo(nameof(InstructorRef), "_"));
+            columns.Add(new ReferenceColumnInfo(nameof(TimeSlotRef), "_"));
         }
 
         #endregion
