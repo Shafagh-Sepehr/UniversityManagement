@@ -14,20 +14,17 @@ using SystemGroup.Framework.StateManagement;
 namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
-    [DetailOf(typeof(Course), "CourseRef")]
+    [DetailOf(typeof(Course), nameof(CourseRef))]
     partial class Prerequisite : Entity
     {
         #region Methods
 
-        public override string GetEntityName()
-        {
-            return "Prerequisite_EntityName"; //TODO
-        }
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "Prerequisite_Number"));
+            columns.Add(new ReferenceColumnInfo(nameof(CourseRef), "_"));
+            columns.Add(new ReferenceColumnInfo(nameof(PrerequisiteRef), "_"));
         }
 
         #endregion

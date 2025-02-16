@@ -19,15 +19,12 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         #region Methods
 
-        public override string GetEntityName()
-        {
-            return "Course_EntityName"; //TODO
-        }
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "Course_Number"));
+            columns.Add(new TextColumnInfo(nameof(Title), "Course_Title"));
+            columns.Add(new NumericColumnInfo(nameof(Credits), "Course_Credits", NumericType.Integer));
         }
 
         #endregion

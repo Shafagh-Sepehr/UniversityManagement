@@ -21,7 +21,8 @@ namespace SystemGroup.General.UniversityManagement.Common
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Field1", "Course_Field1"));
+            columns.Add(new EntityColumnInfo<Course>(nameof(Course.Title)));
+            columns.Add(new EntityColumnInfo<Course>(nameof(Course.Credits)));
         }
 
         #endregion
