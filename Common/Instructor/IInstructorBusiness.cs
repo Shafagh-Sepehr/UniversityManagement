@@ -12,7 +12,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface IInstructorBusiness : IBusinessBase<Instructor>
     {
-        [EntityView("AllInstructor", "Views_AllInstructors", typeof(InstructorProjection), "Name", IsDefaultView = true)]
+        [EntityView("AllInstructor", "Views_AllInstructors", typeof(InstructorProjection), nameof(Instructor.Name), IsDefaultView = true)]
         new IQueryable<Instructor> FetchAll();
     }
 }
