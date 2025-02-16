@@ -20,6 +20,13 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         #region Methods
 
+        public override void SetDefaultValues()
+        {
+            base.SetDefaultValues();
+
+            State = SemesterState.Registered;
+        }
+
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
