@@ -23,7 +23,7 @@ namespace SystemGroup.General.UniversityManagement.Common
         {
             base.GetColumns(columns);
 
-            columns.Add(new TextColumnInfo("Name", "Instructor_Name"));
+            columns.Add(new TextColumnInfo(nameof(Name), "Instructor_Name"));
         }
 
         #endregion

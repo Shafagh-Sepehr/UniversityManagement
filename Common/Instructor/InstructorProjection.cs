@@ -21,7 +21,7 @@ namespace SystemGroup.General.UniversityManagement.Common
         {
             base.GetColumns(columns);
 
-            columns.Add(new EntityColumnInfo<Instructor>("Name"));
+            columns.Add(new EntityColumnInfo<Instructor>(nameof(Instructor.Name)));
         }
 
         #endregion
