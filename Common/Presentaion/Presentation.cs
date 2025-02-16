@@ -17,11 +17,11 @@ namespace SystemGroup.General.UniversityManagement.Common
     [Master(typeof(IPresentationBusiness))]
     partial class Presentation : Entity
     {
-        #region Properties
+        //#region Properties
 
-        public string CourseTitle { get; set; }
+        //public string CourseTitle { get; set; }
 
-        #endregion
+        //#endregion
 
         #region Methods
 
@@ -31,7 +31,7 @@ namespace SystemGroup.General.UniversityManagement.Common
             base.GetColumns(columns);
 
             columns.Add(new NumericColumnInfo(nameof(Capacity), "Presentation_Capacity", NumericType.Integer));
-            columns.Add(new TextColumnInfo(nameof(CourseTitle), "Presentation_CourseTitle"));
+            //columns.Add(new TextColumnInfo(nameof(CourseTitle), "Presentation_CourseTitle"));
             columns.Add(new ReferenceColumnInfo(nameof(CourseRef), "_"));
             columns.Add(new ReferenceColumnInfo(nameof(SemesterRef), "_"));
             columns.Add(new ReferenceColumnInfo(nameof(InstructorRef), "_"));

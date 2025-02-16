@@ -17,27 +17,5 @@ namespace SystemGroup.General.UniversityManagement.Business
     [Service]
     public class PresentationBusiness : BusinessBase<Presentation>, IPresentationBusiness
     {
-        public IQueryable<Presentation> FetchAllPresentationsWithTitle()
-        {
-            var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll();
-            var presentations = FetchAll();
-
-            var presentationsTitlePair= from presentation in presentations
-                                           join course in courses
-                                               on presentation.CourseRef equals course.ID
-                                           select new
-                                           {
-                                               presentation,
-                                               course.Title,
-                                           };
-
-
-            foreach (var pair in presentationsTitlePair)
-            {
-                pair.presentation.CourseTitle = pair.Title;
-            }
-
-            return presentationsTitlePair.Select( p => p.presentation);
-        }
     }
 }

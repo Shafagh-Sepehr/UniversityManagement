@@ -24,13 +24,13 @@ namespace SystemGroup.General.UniversityManagement.Common
                        presentation.Capacity,
                        CourseTitle = course.Title,
                    };
-
         }
+
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            columns.Add(new TextColumnInfo(nameof(Presentation.CourseTitle) , "Presentation_CourseTitle"));
+            columns.Add(new TextColumnInfo("CourseTitle", "Presentation_CourseTitle"));
             columns.Add(new EntityColumnInfo<Presentation>(nameof(Presentation.Capacity)));
         }
 
