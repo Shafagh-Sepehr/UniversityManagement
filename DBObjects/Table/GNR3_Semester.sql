@@ -5,7 +5,7 @@ CREATE TABLE [GNR3].[Semester](
 	[SemesterID] [bigint] NOT NULL,
 	[State] [int] NOT NULL,
 	[Year] [int] NOT NULL,
-	[SemesterNumber] [int] NOT NULL,
+	[Season] [int] NOT NULL,
 	[Version] [timestamp] NOT NULL,
 ) ON [PRIMARY]
 GO
