@@ -24,7 +24,8 @@ namespace SystemGroup.General.UniversityManagement.Common
             base.GetColumns(columns);
 
             columns.Add(new TextColumnInfo(nameof(Name), "Student_Name"));
-            columns.Add(new TextColumnInfo(nameof(TotalCredits), "Student_TotalCredits"));
+            columns.Add(new NumericColumnInfo(nameof(TotalCredits), "Student_TotalCredits", NumericType.Integer));
+            columns.Add(new ReferenceColumnInfo(nameof(AdvisorRef), "_"));
         }
 
         #endregion
