@@ -19,15 +19,21 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         #region Methods
 
-        public override string GetEntityName()
+        public override void SetDefaultValues()
         {
-            return "SemesterEnrollmentItem_EntityName"; //TODO
+            base.SetDefaultValues();
+
+            GradeState = EnrollmentItemGradeState.NotEntered;
         }
+
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "SemesterEnrollmentItem_Number"));
+            columns.Add(new ReferenceColumnInfo(nameof(EnrollmentRef), "_"));
+            columns.Add(new ReferenceColumnInfo(nameof(PresentationRef), "_"));
+            columns.Add(new NumericColumnInfo(nameof(Grade), "EnrollmentItem_Grade", NumericType.Integer));
+            columns.Add(new StateColumnInfo(nameof(GradeState), "EnrollmentItem_State", typeof(EnrollmentItemGradeState)));
         }
 
         #endregion

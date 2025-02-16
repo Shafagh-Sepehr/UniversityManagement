@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
-    public enum EnrollmentItemState
+    public enum EnrollmentItemGradeState
     {
-        Active = 0,
+        NotEntered = 1,
+        Entered = 2,
+        Announced = 3,
     }
 }

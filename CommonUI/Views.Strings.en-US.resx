@@ -126,6 +126,9 @@
   <data name="AllPresentations" xml:space="preserve">
     <value>All Presented Courses</value>
   </data>
+  <data name="AllSemesterEnrollments" xml:space="preserve">
+    <value>All Semester Enrollments</value>
+  </data>
   <data name="AllSemesters" xml:space="preserve">
     <value>All Semesters</value>
   </data>

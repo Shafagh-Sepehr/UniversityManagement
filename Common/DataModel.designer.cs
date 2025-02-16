@@ -638,7 +638,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private int _Grade;
 		
-		private int _GradeState;
+		private EnrollmentItemGradeState _GradeState;
 		
 		private System.Data.Linq.Binary _Version;
 		
@@ -658,7 +658,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnPresentationRefChanged();
     partial void OnGradeChanging(int value);
     partial void OnGradeChanged();
-    partial void OnGradeStateChanging(int value);
+    partial void OnGradeStateChanging(EnrollmentItemGradeState value);
     partial void OnGradeStateChanged();
     partial void OnVersionChanging(System.Data.Linq.Binary value);
     partial void OnVersionChanged();
@@ -759,8 +759,8 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GradeState", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int GradeState
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GradeState", DbType="Int NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public EnrollmentItemGradeState GradeState
 		{
 			get
 			{

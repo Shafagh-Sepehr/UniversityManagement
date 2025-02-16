@@ -117,19 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AllCourses" xml:space="preserve">
-    <value>همه دروس</value>
+  <data name="Announce" xml:space="preserve">
+    <value>اعلام</value>
   </data>
-  <data name="AllInstructors" xml:space="preserve">
-    <value>همه اساتید</value>
+  <data name="Grade" xml:space="preserve">
+    <value>نمره</value>
   </data>
-  <data name="AllPresentations" xml:space="preserve">
-    <value>همه دروس ارائه شده</value>
-  </data>
-  <data name="AllSemesterEnrollments" xml:space="preserve">
-    <value>همه ثبت نام ها</value>
-  </data>
-  <data name="AllSemesters" xml:space="preserve">
-    <value>همه ترم ها</value>
+  <data name="GradeState" xml:space="preserve">
+    <value>وضعیت نمره</value>
   </data>
 </root>

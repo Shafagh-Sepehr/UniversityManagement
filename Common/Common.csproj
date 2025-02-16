@@ -71,8 +71,8 @@
     <Compile Include="Enrollment\IEnrollmentBusiness.cs" />
     <Compile Include="Enrollment\Enrollment.cs" />
     <Compile Include="Enrollment\EnrollmentItem.cs" />
-    <Compile Include="Enrollment\EnrollmentItemState.cs" />
-    <Compile Include="Enrollment\EnrollmentItemStateMachine.cs" />
+    <Compile Include="Enrollment\StateMachine\EnrollmentItemGradeState.cs" />
+    <Compile Include="Enrollment\StateMachine\EnrollmentItemStateMachine.cs" />
     <Compile Include="Enrollment\EnrollmentProjection.cs" />
     <Compile Include="Semester\ISemesterBusiness.cs" />
     <Compile Include="Semester\Semester.cs" />
@@ -105,8 +105,6 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enrollment\StateMachine\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

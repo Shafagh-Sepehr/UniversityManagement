@@ -62,10 +62,10 @@
     <EmbeddedResource Include="Presentation.Strings.resx" />
     <EmbeddedResource Include="Semester.Strings.en-US.resx" />
     <EmbeddedResource Include="Semester.Strings.resx" />
-    <EmbeddedResource Include="SemesterEnrollment.Strings.en-US.resx" />
-    <EmbeddedResource Include="SemesterEnrollment.Strings.resx" />
-    <EmbeddedResource Include="SemesterEnrollmentItem.Strings.en-US.resx" />
-    <EmbeddedResource Include="SemesterEnrollmentItem.Strings.resx" />
+    <EmbeddedResource Include="Enrollment.Strings.en-US.resx" />
+    <EmbeddedResource Include="Enrollment.Strings.resx" />
+    <EmbeddedResource Include="EnrollmentItem.Strings.en-US.resx" />
+    <EmbeddedResource Include="EnrollmentItem.Strings.resx" />
     <EmbeddedResource Include="Student.Strings.en-US.resx" />
     <EmbeddedResource Include="Student.Strings.resx" />
     <EmbeddedResource Include="TimeSlot.Strings.en-US.resx" />

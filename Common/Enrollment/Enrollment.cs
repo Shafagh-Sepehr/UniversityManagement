@@ -19,15 +19,20 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         #region Methods
 
-        public override string GetEntityName()
+        public override DetailLoadOptions DeleteLoadOptions
         {
-            return "SemesterEnrollment_EntityName"; //TODO
+            get
+            {
+                return LoadOptions.With<Enrollment>(i => i.EnrollmentItems);
+            }
         }
+
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "SemesterEnrollment_Number"));
+            columns.Add(new ReferenceColumnInfo(nameof(StudentRef), "_"));
+            columns.Add(new ReferenceColumnInfo(nameof(SemesterRef), "_"));
         }
 
         #endregion
