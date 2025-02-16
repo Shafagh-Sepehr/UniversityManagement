@@ -638,7 +638,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private int _Grade;
 		
-		private int _State;
+		private int _GradeState;
 		
 		private System.Data.Linq.Binary _Version;
 		
@@ -658,8 +658,8 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnPresentationRefChanged();
     partial void OnGradeChanging(int value);
     partial void OnGradeChanged();
-    partial void OnStateChanging(int value);
-    partial void OnStateChanged();
+    partial void OnGradeStateChanging(int value);
+    partial void OnGradeStateChanged();
     partial void OnVersionChanging(System.Data.Linq.Binary value);
     partial void OnVersionChanged();
     #endregion
@@ -759,22 +759,22 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GradeState", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int GradeState
 		{
 			get
 			{
-				return this._State;
+				return this._GradeState;
 			}
 			set
 			{
-				if ((this._State != value))
+				if ((this._GradeState != value))
 				{
-					this.OnStateChanging(value);
+					this.OnGradeStateChanging(value);
 					this.SendPropertyChanging();
-					this._State = value;
-					this.SendPropertyChanged("State");
-					this.OnStateChanged();
+					this._GradeState = value;
+					this.SendPropertyChanged("GradeState");
+					this.OnGradeStateChanged();
 				}
 			}
 		}

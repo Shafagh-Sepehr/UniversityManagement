@@ -6,7 +6,7 @@ CREATE TABLE [GNR3].[EnrollmentItem](
 	[EnrollmentRef] [bigint] NOT NULL,
 	[PresentationRef] [bigint] NOT NULL,
 	[Grade] [int] NOT NULL,
-	[State] [int] NOT NULL,
+	[GradeState] [int] NOT NULL,
 	[Version] [timestamp] NOT NULL,
 ) ON [PRIMARY]
 GO
