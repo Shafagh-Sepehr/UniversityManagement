@@ -35,7 +35,6 @@ namespace SystemGroup.General.UniversityManagement.Common
             columns.Add(new ReferenceColumnInfo(nameof(CourseRef), "_"));
             columns.Add(new ReferenceColumnInfo(nameof(SemesterRef), "_"));
             columns.Add(new ReferenceColumnInfo(nameof(InstructorRef), "_"));
-            columns.Add(new ReferenceColumnInfo(nameof(TimeSlotRef), "_"));
         }
 
         #endregion

@@ -6,9 +6,32 @@
       <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="Course_Presentation" Member="Presentations" ThisKey="ID" OtherKey="CourseRef" Type="Presentation" />
       <Association Name="Course_Prerequisite" Member="Prerequisites" ThisKey="ID" OtherKey="CourseRef" Type="Prerequisite" />
       <Association Name="Course_Prerequisite1" Member="Prerequisites1" ThisKey="ID" OtherKey="PrerequisiteRef" Type="Prerequisite" />
+      <Association Name="Course_Presentation" Member="Presentations" ThisKey="ID" OtherKey="CourseRef" Type="Presentation" />
+    </Type>
+  </Table>
+  <Table Name="GNR3.Enrollment" Member="Enrollments">
+    <Type Name="Enrollment">
+      <Column Name="EnrollmentID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SemesterRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Enrollment_EnrollmentItem" Member="EnrollmentItems" ThisKey="ID" OtherKey="EnrollmentRef" Type="EnrollmentItem" />
+      <Association Name="Semester_Enrollment" Member="Semester" ThisKey="SemesterRef" OtherKey="ID" Type="Semester" IsForeignKey="true" />
+      <Association Name="Student_Enrollment" Member="Student" ThisKey="StudentRef" OtherKey="ID" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GNR3.EnrollmentItem" Member="EnrollmentItems">
+    <Type Name="EnrollmentItem">
+      <Column Name="EnrollmentItemID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EnrollmentRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PresentationRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Grade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Enrollment_EnrollmentItem" Member="Enrollment" ThisKey="EnrollmentRef" OtherKey="ID" Type="Enrollment" IsForeignKey="true" />
+      <Association Name="Presentation_EnrollmentItem" Member="Presentation" ThisKey="PresentationRef" OtherKey="ID" Type="Presentation" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="GNR3.Instructor" Member="Instructors">
@@ -16,78 +39,8 @@
       <Column Name="InstructorID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="Instructor_Student" Member="Students" ThisKey="ID" OtherKey="AdvisorRef" Type="Student" />
       <Association Name="Instructor_Presentation" Member="Presentations" ThisKey="ID" OtherKey="InstructorRef" Type="Presentation" />
-    </Type>
-  </Table>
-  <Table Name="GNR3.Semester" Member="Semesters">
-    <Type Name="Semester">
-      <Column Name="SemesterID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="State" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Time" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="Semester_SemesterEnrollment" Member="SemesterEnrollments" ThisKey="ID" OtherKey="SemesterRef" Type="SemesterEnrollment" />
-      <Association Name="Semester_Presentation" Member="Presentations" ThisKey="ID" OtherKey="SemesterRef" Type="Presentation" />
-    </Type>
-  </Table>
-  <Table Name="GNR3.SemesterEnrollment" Member="SemesterEnrollments">
-    <Type Name="SemesterEnrollment">
-      <Column Name="SemesterEnrollmentID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="StudentRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="SemesterRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="SemesterEnrollment_SemesterEnrollmentItem" Member="SemesterEnrollmentItems" ThisKey="ID" OtherKey="SemesterEnrollmentRef" Type="SemesterEnrollmentItem" />
-      <Association Name="Semester_SemesterEnrollment" Member="Semester" ThisKey="SemesterRef" OtherKey="ID" Type="Semester" IsForeignKey="true" />
-      <Association Name="Student_SemesterEnrollment" Member="Student" ThisKey="StudentRef" OtherKey="ID" Type="Student" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="GNR3.SemesterEnrollmentItem" Member="SemesterEnrollmentItems">
-    <Type Name="SemesterEnrollmentItem">
-      <Column Name="SemesterEnrollmentItemID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SemesterEnrollmentRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="PresentationRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Grade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="State" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="SemesterEnrollment_SemesterEnrollmentItem" Member="SemesterEnrollment" ThisKey="SemesterEnrollmentRef" OtherKey="ID" Type="SemesterEnrollment" IsForeignKey="true" />
-      <Association Name="Presentation_SemesterEnrollmentItem" Member="Presentation" ThisKey="PresentationRef" OtherKey="ID" Type="Presentation" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="GNR3.Student" Member="Students">
-    <Type Name="Student">
-      <Column Name="StudentID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="AdvisorRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="tot_cred" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="Student_SemesterEnrollment" Member="SemesterEnrollments" ThisKey="ID" OtherKey="StudentRef" Type="SemesterEnrollment" />
-      <Association Name="Instructor_Student" Member="Instructor" ThisKey="AdvisorRef" OtherKey="ID" Type="Instructor" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="GNR3.Presentation" Member="Presentations">
-    <Type Name="Presentation">
-      <Column Name="PresentationID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CourseRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="SemesterRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="InstructorRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="TimeSlotRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="Presentation_SemesterEnrollmentItem" Member="SemesterEnrollmentItems" ThisKey="ID" OtherKey="PresentationRef" Type="SemesterEnrollmentItem" />
-      <Association Name="Course_Presentation" Member="Course" ThisKey="CourseRef" OtherKey="ID" Type="Course" IsForeignKey="true" />
-      <Association Name="Instructor_Presentation" Member="Instructor" ThisKey="InstructorRef" OtherKey="ID" Type="Instructor" IsForeignKey="true" />
-      <Association Name="Semester_Presentation" Member="Semester" ThisKey="SemesterRef" OtherKey="ID" Type="Semester" IsForeignKey="true" />
-      <Association Name="TimeSlot_Presentation" Member="TimeSlot" ThisKey="TimeSlotRef" OtherKey="ID" Type="TimeSlot" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="GNR3.TimeSlot" Member="TimeSlots">
-    <Type Name="TimeSlot">
-      <Column Name="TimeSlotID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Day" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StartTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EndTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Association Name="TimeSlot_Presentation" Member="Presentations" ThisKey="ID" OtherKey="TimeSlotRef" Type="Presentation" />
+      <Association Name="Instructor_Student" Member="Students" ThisKey="ID" OtherKey="AdvisorRef" Type="Student" />
     </Type>
   </Table>
   <Table Name="GNR3.Prerequisite" Member="Prerequisites">
@@ -98,6 +51,54 @@
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
       <Association Name="Course_Prerequisite" Member="Course" ThisKey="CourseRef" OtherKey="ID" Type="Course" IsForeignKey="true" />
       <Association Name="Course_Prerequisite1" Member="Course1" ThisKey="PrerequisiteRef" OtherKey="ID" Type="Course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GNR3.Presentation" Member="Presentations">
+    <Type Name="Presentation">
+      <Column Name="PresentationID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SemesterRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="InstructorRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Presentation_EnrollmentItem" Member="EnrollmentItems" ThisKey="ID" OtherKey="PresentationRef" Type="EnrollmentItem" />
+      <Association Name="Presentation_TimeSlot" Member="TimeSlots" ThisKey="ID" OtherKey="PresentationRef" Type="TimeSlot" />
+      <Association Name="Course_Presentation" Member="Course" ThisKey="CourseRef" OtherKey="ID" Type="Course" IsForeignKey="true" />
+      <Association Name="Instructor_Presentation" Member="Instructor" ThisKey="InstructorRef" OtherKey="ID" Type="Instructor" IsForeignKey="true" />
+      <Association Name="Semester_Presentation" Member="Semester" ThisKey="SemesterRef" OtherKey="ID" Type="Semester" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GNR3.Semester" Member="Semesters">
+    <Type Name="Semester">
+      <Column Name="SemesterID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="State" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SemesterNumber" Member="Season" Type="SemesterSeason" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Semester_Enrollment" Member="Enrollments" ThisKey="ID" OtherKey="SemesterRef" Type="Enrollment" />
+      <Association Name="Semester_Presentation" Member="Presentations" ThisKey="ID" OtherKey="SemesterRef" Type="Presentation" />
+    </Type>
+  </Table>
+  <Table Name="GNR3.TimeSlot" Member="TimeSlots">
+    <Type Name="TimeSlot">
+      <Column Name="TimeSlotID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Day" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PresentationRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Presentation_TimeSlot" Member="Presentation" ThisKey="PresentationRef" OtherKey="ID" Type="Presentation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GNR3.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="StudentID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="AdvisorRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="tot_cred" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Student_Enrollment" Member="Enrollments" ThisKey="ID" OtherKey="StudentRef" Type="Enrollment" />
+      <Association Name="Instructor_Student" Member="Instructor" ThisKey="AdvisorRef" OtherKey="ID" Type="Instructor" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

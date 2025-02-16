@@ -7,11 +7,11 @@ using SystemGroup.Framework.Common;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
-    public class SemesterEnrollmentProjection : EntityProjection<SemesterEnrollment>
+    public class EnrollmentProjection : EntityProjection<Enrollment>
     {
         #region Methods
 
-        public override IQueryable Project(IQueryable<SemesterEnrollment> inputs)
+        public override IQueryable Project(IQueryable<Enrollment> inputs)
         {
             return from input in inputs
                    select input;

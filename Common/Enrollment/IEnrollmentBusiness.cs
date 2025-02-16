@@ -10,9 +10,9 @@ using SystemGroup.Framework.Service;
 namespace SystemGroup.General.UniversityManagement.Common
 {
     [ServiceInterface]
-    public interface ISemesterEnrollmentBusiness : IBusinessBase<SemesterEnrollment>
+    public interface IEnrollmentBusiness : IBusinessBase<Enrollment>
     {
-        [EntityView("AllSemesterEnrollment", "Views_AllSemesterEnrollment", typeof(SemesterEnrollmentProjection), "Name", IsDefaultView = true)]
-        new IQueryable<SemesterEnrollment> FetchAll();
+        [EntityView("AllSemesterEnrollment", "Views_AllSemesterEnrollment", typeof(EnrollmentProjection), "Name", IsDefaultView = true)]
+        new IQueryable<Enrollment> FetchAll();
     }
 }

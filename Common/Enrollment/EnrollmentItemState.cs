@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
-    public enum SemesterEnrollmentItemState
+    public enum EnrollmentItemState
     {
         Active = 0,
     }

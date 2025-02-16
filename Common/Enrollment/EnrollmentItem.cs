@@ -14,8 +14,8 @@ using SystemGroup.Framework.StateManagement;
 namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
-    [DetailOf(typeof(SemesterEnrollment), "SemesterEnrollmentRef")]
-    partial class SemesterEnrollmentItem : Entity
+    [DetailOf(typeof(Enrollment), "SemesterEnrollmentRef")]
+    partial class EnrollmentItem : Entity
     {
         #region Methods
 

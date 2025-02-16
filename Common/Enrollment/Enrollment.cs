@@ -14,8 +14,8 @@ using SystemGroup.Framework.StateManagement;
 namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
-    [Master(typeof(ISemesterEnrollmentBusiness))]
-    partial class SemesterEnrollment : Entity
+    [Master(typeof(IEnrollmentBusiness))]
+    partial class Enrollment : Entity
     {
         #region Methods
 

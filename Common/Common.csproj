@@ -68,12 +68,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SemesterEnrollment\ISemesterEnrollmentBusiness.cs" />
-    <Compile Include="SemesterEnrollment\SemesterEnrollment.cs" />
-    <Compile Include="SemesterEnrollment\SemesterEnrollmentItem.cs" />
-    <Compile Include="SemesterEnrollment\SemesterEnrollmentItemState.cs" />
-    <Compile Include="SemesterEnrollment\SemesterEnrollmentItemStateMachine.cs" />
-    <Compile Include="SemesterEnrollment\SemesterEnrollmentProjection.cs" />
+    <Compile Include="Enrollment\IEnrollmentBusiness.cs" />
+    <Compile Include="Enrollment\Enrollment.cs" />
+    <Compile Include="Enrollment\EnrollmentItem.cs" />
+    <Compile Include="Enrollment\EnrollmentItemState.cs" />
+    <Compile Include="Enrollment\EnrollmentItemStateMachine.cs" />
+    <Compile Include="Enrollment\EnrollmentProjection.cs" />
     <Compile Include="Semester\ISemesterBusiness.cs" />
     <Compile Include="Semester\Semester.cs" />
     <Compile Include="Semester\SemesterProjection.cs" />

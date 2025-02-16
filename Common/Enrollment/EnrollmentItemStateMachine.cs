@@ -7,7 +7,7 @@ using SystemGroup.Framework.StateManagement.ProtoType;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
-    public class SemesterEnrollmentItemStateMachine : StateMachine<SemesterEnrollmentItem, SemesterEnrollmentItemState>
+    public class EnrollmentItemStateMachine : StateMachine<EnrollmentItem, EnrollmentItemState>
     {
         protected override void InitializeStates()
         {
@@ -16,12 +16,12 @@ namespace SystemGroup.General.UniversityManagement.Common
             //Transitions.Add(new ManualTransition(active, active, "Labels_Active"));
         }
 
-        protected override void DoChangeState(SemesterEnrollmentItem record, SemesterEnrollmentItemState state, StateChangeContext context)
+        protected override void DoChangeState(EnrollmentItem record, EnrollmentItemState state, StateChangeContext context)
         {
             //record.State = state
         }
 
-        protected override SemesterEnrollmentItemState GetCurrentStateCodeAsEnum(SemesterEnrollmentItem record)
+        protected override EnrollmentItemState GetCurrentStateCodeAsEnum(EnrollmentItem record)
         {
             throw new NotImplementedException();
             //return record.State;
