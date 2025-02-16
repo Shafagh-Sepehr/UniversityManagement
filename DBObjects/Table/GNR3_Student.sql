@@ -5,7 +5,7 @@ CREATE TABLE [GNR3].[Student](
 	[StudentID] [bigint] NOT NULL,
 	[Name] [nvarchar](500) NOT NULL,
 	[AdvisorRef] [bigint] NOT NULL,
-	[tot_cred] [int] NOT NULL,
+	[TotalCredits] [int] NOT NULL,
 	[Version] [timestamp] NOT NULL,
 ) ON [PRIMARY]
 GO

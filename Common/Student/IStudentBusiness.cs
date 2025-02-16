@@ -12,7 +12,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface IStudentBusiness : IBusinessBase<Student>
     {
-        [EntityView("AllStudent", "Views_AllStudent", typeof(StudentProjection), "Name", IsDefaultView = true)]
+        [EntityView("AllStudent", "Views_AllStudents", typeof(StudentProjection), nameof(Student.Name), IsDefaultView = true)]
         new IQueryable<Student> FetchAll();
     }
 }

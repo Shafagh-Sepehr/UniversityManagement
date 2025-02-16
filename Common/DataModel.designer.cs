@@ -2098,8 +2098,8 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnNameChanged();
     partial void OnAdvisorRefChanging(long value);
     partial void OnAdvisorRefChanged();
-    partial void Ontot_credChanging(int value);
-    partial void Ontot_credChanged();
+    partial void OnTotalCreditsChanging(int value);
+    partial void OnTotalCreditsChanged();
     partial void OnVersionChanging(System.Data.Linq.Binary value);
     partial void OnVersionChanged();
     #endregion
@@ -2176,7 +2176,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tot_cred", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int tot_cred
+		public int TotalCredits
 		{
 			get
 			{
@@ -2186,11 +2186,11 @@ namespace SystemGroup.General.UniversityManagement.Common
 			{
 				if ((this._tot_cred != value))
 				{
-					this.Ontot_credChanging(value);
+					this.OnTotalCreditsChanging(value);
 					this.SendPropertyChanging();
 					this._tot_cred = value;
-					this.SendPropertyChanged("tot_cred");
-					this.Ontot_credChanged();
+					this.SendPropertyChanged("TotalCredits");
+					this.OnTotalCreditsChanged();
 				}
 			}
 		}

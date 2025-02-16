@@ -95,7 +95,7 @@
       <Column Name="StudentID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="AdvisorRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="tot_cred" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalCredits" Storage="_tot_cred" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
       <Association Name="Student_Enrollment" Member="Enrollments" ThisKey="ID" OtherKey="StudentRef" Type="Enrollment" />
       <Association Name="Instructor_Student" Member="Instructor" ThisKey="AdvisorRef" OtherKey="ID" Type="Instructor" IsForeignKey="true" />

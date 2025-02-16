@@ -132,4 +132,7 @@
   <data name="AllSemesters" xml:space="preserve">
     <value>همه ترم ها</value>
   </data>
+  <data name="AllStudents" xml:space="preserve">
+    <value>همه دانشجویان</value>
+  </data>
 </root>
