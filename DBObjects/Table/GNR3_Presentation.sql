@@ -1,4 +1,4 @@
---<< TABLE DEFINITION >>--
+﻿--<< TABLE DEFINITION >>--
 
 If Object_ID('GNR3.Presentation') IS NULL
 CREATE TABLE [GNR3].[Presentation](
@@ -6,7 +6,6 @@ CREATE TABLE [GNR3].[Presentation](
 	[CourseRef] [bigint] NOT NULL,
 	[SemesterRef] [bigint] NOT NULL,
 	[InstructorRef] [bigint] NOT NULL,
-	[TimeSlotRef] [bigint] NOT NULL,
 	[Capacity] [int] NOT NULL,
 	[Version] [timestamp] NOT NULL,
 ) ON [PRIMARY]
@@ -52,14 +51,6 @@ ALTER TABLE [GNR3].[Presentation] CHECK CONSTRAINT [FK_GNR3_Presentation_Semeste
 end
 GO
 
-
-If NOT EXISTS (SELECT 1 FROM sys.objects WHERE NAME = 'FK_GNR3_Presentation_TimeSlotRef' and type = 'F') begin
-ALTER TABLE [GNR3].[Presentation]  WITH CHECK ADD  CONSTRAINT [FK_GNR3_Presentation_TimeSlotRef] FOREIGN KEY([TimeSlotRef])
-REFERENCES [GNR3].[TimeSlot] ([TimeSlotID])
-
-ALTER TABLE [GNR3].[Presentation] CHECK CONSTRAINT [FK_GNR3_Presentation_TimeSlotRef]
-end
-GO
 --<< DEFAULTS CHECKS DEFINITION >>--
 
 --<< RULES DEFINITION >>--
