@@ -12,7 +12,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface IPresentationBusiness : IBusinessBase<Presentation>
     {
-        [EntityView("AllPresentation", "Presentation_AllPresentations", typeof(PresentationProjection), nameof(Presentation.CourseTitle), IsDefaultView = true)]
+        [EntityView("AllPresentation", "Views_AllPresentations", typeof(PresentationProjection), nameof(Presentation.CourseTitle), IsDefaultView = true)]
         IQueryable<Presentation> FetchAllPresentationsWithTitle();
     }
 }

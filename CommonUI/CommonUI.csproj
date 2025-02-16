@@ -70,6 +70,8 @@
     <EmbeddedResource Include="Student.Strings.resx" />
     <EmbeddedResource Include="TimeSlot.Strings.en-US.resx" />
     <EmbeddedResource Include="TimeSlot.Strings.resx" />
+    <EmbeddedResource Include="Views.Strings.en-US.resx" />
+    <EmbeddedResource Include="Views.Strings.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
