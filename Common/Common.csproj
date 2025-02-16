@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D40BFEE-146C-44F1-83B3-DDF3178FB7C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SystemGroup.General.UniversityManagement.Common</RootNamespace>
+    <AssemblyName>SystemGroup.General.UniversityManagement.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq">
+      <HintPath>..\..\..\..\Bin\System.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemGroup.Framework">
+      <HintPath>..\..\..\..\Bin\SystemGroup.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Course\Course.cs" />
+    <Compile Include="Course\CourseProjection.cs" />
+    <Compile Include="Course\ICourseBusiness.cs" />
+    <Compile Include="Course\Prerequisite.cs" />
+    <Compile Include="DataModel.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor\IInstructorBusiness.cs" />
+    <Compile Include="Instructor\Instructor.cs" />
+    <Compile Include="Instructor\InstructorProjection.cs" />
+    <Compile Include="Presentaion\IPresentationBusiness.cs" />
+    <Compile Include="Presentaion\Presentation.cs" />
+    <Compile Include="Presentaion\PresentationProjection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SemesterEnrollment\ISemesterEnrollmentBusiness.cs" />
+    <Compile Include="SemesterEnrollment\SemesterEnrollment.cs" />
+    <Compile Include="SemesterEnrollment\SemesterEnrollmentItem.cs" />
+    <Compile Include="SemesterEnrollment\SemesterEnrollmentItemState.cs" />
+    <Compile Include="SemesterEnrollment\SemesterEnrollmentItemStateMachine.cs" />
+    <Compile Include="SemesterEnrollment\SemesterEnrollmentProjection.cs" />
+    <Compile Include="Semester\ISemesterBusiness.cs" />
+    <Compile Include="Semester\Semester.cs" />
+    <Compile Include="Semester\SemesterProjection.cs" />
+    <Compile Include="Semester\SemesterState.cs" />
+    <Compile Include="Semester\SemesterStateMachine.cs" />
+    <Compile Include="Student\IStudentBusiness.cs" />
+    <Compile Include="Student\Student.cs" />
+    <Compile Include="Student\StudentProjection.cs" />
+    <Compile Include="TimeSlot\ITimeSlotBusiness.cs" />
+    <Compile Include="TimeSlot\TimeSlot.cs" />
+    <Compile Include="TimeSlot\TimeSlotProjection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataModel.dbml">
+      <Generator>SGLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataModel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataModel.dbml.layout">
+      <DependentUpon>DataModel.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
