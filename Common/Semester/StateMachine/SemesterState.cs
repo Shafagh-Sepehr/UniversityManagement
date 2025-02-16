@@ -8,6 +8,9 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     public enum SemesterState
     {
-        Active = 0,
+        Registered = 1,
+        EnrollmentPhase = 2,
+        Active = 3,
+        Finished = 4,
     }
 }

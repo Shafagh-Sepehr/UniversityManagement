@@ -1639,7 +1639,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private long _ID;
 		
-		private int _State;
+		private SemesterState _State;
 		
 		private int _Year;
 		
@@ -1657,7 +1657,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnCreated();
     partial void OnIDChanging(long value);
     partial void OnIDChanged();
-    partial void OnStateChanging(int value);
+    partial void OnStateChanging(SemesterState value);
     partial void OnStateChanged();
     partial void OnYearChanging(int value);
     partial void OnYearChanged();
@@ -1694,8 +1694,8 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="Int NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public SemesterState State
 		{
 			get
 			{

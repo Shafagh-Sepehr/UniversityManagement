@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using SystemGroup.Framework.Business;
 using SystemGroup.Framework.Common;
@@ -19,15 +20,13 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         #region Methods
 
-        public override string GetEntityName()
-        {
-            return "Semester_EntityName"; //TODO
-        }
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "Semester_Number"));
+            columns.Add(new StateColumnInfo(nameof(State), "Semester_State", typeof(SemesterState)));
+            columns.Add(new NumericColumnInfo(nameof(Year), "Semester_Year", NumericType.Integer));
+            columns.Add(new LookupColumnInfo(nameof(Season), "Semester_SemesterNumber", nameof(SemesterSeason)));
         }
 
         #endregion

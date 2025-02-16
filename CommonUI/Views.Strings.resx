@@ -126,4 +126,7 @@
   <data name="AllPresentations" xml:space="preserve">
     <value>همه دروس ارائه شده</value>
   </data>
+  <data name="AllSemesters" xml:space="preserve">
+    <value>همه ترم ها</value>
+  </data>
 </root>

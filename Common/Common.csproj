@@ -76,9 +76,10 @@
     <Compile Include="Enrollment\EnrollmentProjection.cs" />
     <Compile Include="Semester\ISemesterBusiness.cs" />
     <Compile Include="Semester\Semester.cs" />
+    <Compile Include="Semester\SemesterSeason.cs" />
     <Compile Include="Semester\SemesterProjection.cs" />
-    <Compile Include="Semester\SemesterState.cs" />
-    <Compile Include="Semester\SemesterStateMachine.cs" />
+    <Compile Include="Semester\StateMachine\SemesterState.cs" />
+    <Compile Include="Semester\StateMachine\SemesterStateMachine.cs" />
     <Compile Include="Student\IStudentBusiness.cs" />
     <Compile Include="Student\Student.cs" />
     <Compile Include="Student\StudentProjection.cs" />
@@ -103,6 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enrollment\StateMachine\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
