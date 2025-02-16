@@ -15,6 +15,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(ICourseBusiness))]
+    [SearchFields(nameof(Title), nameof(Credits))]
     partial class Course : Entity
     {
         #region Properties

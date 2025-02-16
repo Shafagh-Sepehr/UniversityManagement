@@ -10,11 +10,13 @@ using SystemGroup.Framework.MetaData;
 using SystemGroup.Framework.MetaData.Mapping;
 using SystemGroup.Framework.Service;
 using SystemGroup.Framework.StateManagement;
+using static SystemGroup.Framework.StateManagement.ProtoType.StateMachine;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(IStudentBusiness))]
+    [SearchFields(nameof(Name), nameof(TotalCredits))]
     partial class Student : Entity
     {
         #region Methods

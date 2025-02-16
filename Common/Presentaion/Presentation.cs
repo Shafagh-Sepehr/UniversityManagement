@@ -15,6 +15,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(IPresentationBusiness))]
+    [SearchFields(nameof(Capacity))]
     partial class Presentation : Entity
     {
         //#region Properties

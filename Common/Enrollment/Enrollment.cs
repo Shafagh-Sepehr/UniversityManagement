@@ -15,6 +15,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(IEnrollmentBusiness))]
+    [SearchFields("Year")] //TODO check if this works
     partial class Enrollment : Entity
     {
         #region Methods

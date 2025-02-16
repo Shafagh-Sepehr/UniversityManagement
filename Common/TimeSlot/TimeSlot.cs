@@ -10,11 +10,13 @@ using SystemGroup.Framework.MetaData;
 using SystemGroup.Framework.MetaData.Mapping;
 using SystemGroup.Framework.Service;
 using SystemGroup.Framework.StateManagement;
+using static SystemGroup.Framework.StateManagement.ProtoType.StateMachine;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(ITimeSlotBusiness))]
+    [SearchFields(nameof(Day), nameof(StartTime), nameof(EndTime))]
     partial class TimeSlot : Entity
     {
         #region Methods

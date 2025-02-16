@@ -15,6 +15,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(IInstructorBusiness))]
+    [SearchFields(nameof(Name))]
     partial class Instructor : Entity
     {
         #region Methods

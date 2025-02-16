@@ -16,6 +16,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(ISemesterBusiness))]
+    [SearchFields(nameof(State), nameof(Year), nameof(Season))]
     partial class Semester : Entity
     {
         #region Methods
