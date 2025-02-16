@@ -19,15 +19,14 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         #region Methods
 
-        public override string GetEntityName()
-        {
-            return "TimeSlot_EntityName"; //TODO
-        }
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            //columns.Add(new TextColumnInfo("Number", "TimeSlot_Number"));
+            columns.Add(new LookupColumnInfo(nameof(Day), "TimeSlot_Day",nameof(DayOfWeek)));
+            columns.Add(new TimeColumnInfo(nameof(StartTime), "TimeSlot_StartTime"));
+            columns.Add(new TimeColumnInfo(nameof(EndTime), "TimeSlot_EndTime"));
+            columns.Add(new ReferenceColumnInfo(nameof(PresentationRef), "_"));
         }
 
         #endregion

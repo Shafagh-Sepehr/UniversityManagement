@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CourseBusiness.cs" />
     <Compile Include="EnrollmentBusiness.cs" />
+    <Compile Include="TimeSlotBusiness.cs" />
     <Compile Include="InstructorBusiness.cs" />
     <Compile Include="PresentationBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
