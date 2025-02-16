@@ -1734,7 +1734,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="SemesterNumber", Storage="_Season", DbType="Int NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Season", DbType="Int NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public SemesterSeason Season
 		{
 			get
