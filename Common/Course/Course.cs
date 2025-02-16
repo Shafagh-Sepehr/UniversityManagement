@@ -17,6 +17,19 @@ namespace SystemGroup.General.UniversityManagement.Common
     [Master(typeof(ICourseBusiness))]
     partial class Course : Entity
     {
+        #region Properties
+
+        public override DetailLoadOptions DeleteLoadOptions
+        {
+            get
+            {
+                return LoadOptions.With<Course>(c => c.Prerequisites).With<Course>(c => c.Prerequisites1);
+            }
+
+        }
+
+        #endregion
+
         #region Methods
 
         public override void GetColumns(List<ColumnInfo> columns)
