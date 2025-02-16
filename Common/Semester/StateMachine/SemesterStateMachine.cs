@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SystemGroup.Framework.StateManagement.ProtoType;
+﻿using SystemGroup.Framework.StateManagement.ProtoType;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {

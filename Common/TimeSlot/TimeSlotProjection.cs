@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SystemGroup.Framework.Common;
-using SystemGroup.Framework.Jobs;
 using SystemGroup.Framework.Service;
 
 namespace SystemGroup.General.UniversityManagement.Common
