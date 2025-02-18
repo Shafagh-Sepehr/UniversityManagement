@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="SystemGroup.General.UniversityManagement.Web.InstructorPages.Edit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs"
+Inherits="SystemGroup.General.UniversityManagement.Web.InstructorPages.Edit" 
+Title="Instructor_Instructor" %>
 
 <!DOCTYPE html>
 
