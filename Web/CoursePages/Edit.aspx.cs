@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SystemGroup.Framework.Business;
+using SystemGroup.Framework.Common;
 using SystemGroup.General.UniversityManagement.Common;
 using SystemGroup.Web.UI;
 using SystemGroup.Web.UI.Controls;
+using Telerik.Web.UI;
 
 namespace SystemGroup.General.UniversityManagement.Web.CoursePages
 {
@@ -76,6 +79,22 @@ namespace SystemGroup.General.UniversityManagement.Web.CoursePages
             base.OnEntityLoaded(sender, e);
 
             Prerequisite.FillExtraProperties(CurrentEntity.Prerequisites);
+        }
+
+        protected void sltPrerequisite_itemsRequested(object sender, RadComboBoxItemsRequestedEventArgs args)
+        {
+            var slt = (SgSelector)sender;
+            var ignoredIDs = ((IEnumerable)args.Context["IgnoredIDs"])
+                .Cast<object>()
+                .Select(Convert.ToInt64)
+                .ToList();
+
+            if (CurrentEntity != null)
+            {
+                ignoredIDs.Add(CurrentEntity.ID);
+            }
+
+            slt.FilterExpression = o => !ignoredIDs.Contains(((Entity)o).ID);
         }
 
         #endregion

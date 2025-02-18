@@ -53,24 +53,26 @@
                     <sg:SgGrid runat="server" GridType="ClientSide"
                         AllowScroll="True" AllowInsert="True"
                         AllowEdit="True" AllowDelete="True"
-                        DataSourceID=".Prerequisites" Width="200px"
+                        DataSourceID=".Prerequisites" Width="800px"
                         ID="grdPrerequisites" ValidationGroup="vgGrid">
                         <Columns>
 
                             <sg:SgSelectorGridColumn PropertyName="PrerequisiteTitle" headertext="Prerequisite_PrerequisitesTitle"> 
                                 <EditItemTemplate>
-                                    <sg:SgSelector ID="sltPrerequisite" runat="server" Width="400px"
+                                    <sg:SgSelector ID="sltPrerequisite" runat="server" Width="800px"
                                         ComponentName="SystemGroup.General.UniversityManagement"
                                         EntityName="Course" ViewName="AllCourse"
                                         OnClientSelectedIndexChanged="sltPrerequisite_selectedIndexChanged"
+                                        OnClientItemsRequesting="sltPrerequisite_itemsRequesting"
+                                        OnItemsRequested="sltPrerequisite_itemsRequested"
                                         CbSelectedID="{binding PrerequisiteRef}">
                                         <Properties>
                                             <sg:SgSelectorProperty Name="Title" ClientSide="True" />
                                         </Properties>
                                     </sg:SgSelector>
-                                    <sg:SgRequiredFieldValidator runat="server"
-                                        ControlToValidate="sltPrerequisite" ErrorMessageKey="Messages_PrerequisiteIsrequired" 
-                                                                 ValidationGroup="vsGrid"/>
+                                    <sg:SgRequiredFieldValidator runat="server" ControlToValidate="sltPrerequisite" 
+                                        ErrorMessageKey="Messages_PrerequisiteIsrequired" ValidationGroup="vgGrid" />
+
                                 </EditItemTemplate>
                             </sg:SgSelectorGridColumn>
 

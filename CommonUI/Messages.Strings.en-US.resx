@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
-    <value>Course Cant Be Prerequisite Of It Self</value>
+    <value>Course Cant Be Prerequisite Of It Self (neither directly nor indirectly)</value>
   </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted" xml:space="preserve">
     <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Deleted</value>

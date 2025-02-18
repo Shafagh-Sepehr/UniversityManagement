@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
-    <value>درس نمیتواند پیش‌نیاز خودش باشد</value>
+    <value>رشته پیش‌نیاز های درس نباید به خودش منتهی شود (درسی را اضافه کردید به طور غیر مستقیم پیش‌نیاز خودش می‌شود)</value>
   </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted" xml:space="preserve">
     <value>این درس پیش‌نیاز درس دیگری است و نمیتواند حذف شود</value>
