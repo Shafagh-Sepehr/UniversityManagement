@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
+    <value>درس نمیتواند پیش‌نیاز خودش باشد</value>
+  </data>
+  <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted" xml:space="preserve">
+    <value>این درس پیش‌نیاز درس دیگری است و نمیتواند حذف شود</value>
+  </data>
   <data name="NameIsRequired" xml:space="preserve">
     <value>نام را وارد کنید</value>
+  </data>
+  <data name="PrerequisiteIsrequired" xml:space="preserve">
+    <value>درس پیش‌نیاز را انتخاب کنید</value>
+  </data>
+  <data name="TitleIsRequired" xml:space="preserve">
+    <value>عنوان را وارد کنید</value>
   </data>
 </root>

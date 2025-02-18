@@ -172,13 +172,13 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private string _Title;
 		
-		private int _Credits;
+		private CourseCredits _Credits;
 		
 		private System.Data.Linq.Binary _Version;
 		
 		private EntitySet<Prerequisite> _Prerequisites;
 		
-		private EntitySet<Prerequisite> _Prerequisites1;
+		private EntitySet<Prerequisite> _OtherCoursesWhoPrerequisite;
 		
 		private EntitySet<Presentation> _Presentations;
 		
@@ -190,7 +190,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnIDChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnCreditsChanging(int value);
+    partial void OnCreditsChanging(CourseCredits value);
     partial void OnCreditsChanged();
     partial void OnVersionChanging(System.Data.Linq.Binary value);
     partial void OnVersionChanged();
@@ -199,7 +199,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		public Course()
 		{
 			this._Prerequisites = new EntitySet<Prerequisite>(new Action<Prerequisite>(this.attach_Prerequisites), new Action<Prerequisite>(this.detach_Prerequisites));
-			this._Prerequisites1 = new EntitySet<Prerequisite>(new Action<Prerequisite>(this.attach_Prerequisites1), new Action<Prerequisite>(this.detach_Prerequisites1));
+			this._OtherCoursesWhoPrerequisite = new EntitySet<Prerequisite>(new Action<Prerequisite>(this.attach_OtherCoursesWhoPrerequisite), new Action<Prerequisite>(this.detach_OtherCoursesWhoPrerequisite));
 			this._Presentations = new EntitySet<Presentation>(new Action<Presentation>(this.attach_Presentations), new Action<Presentation>(this.detach_Presentations));
 			OnCreated();
 		}
@@ -244,8 +244,8 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Credits", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int Credits
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Credits", DbType="Int NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public CourseCredits Credits
 		{
 			get
 			{
@@ -297,16 +297,16 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Prerequisite1", Storage="_Prerequisites1", ThisKey="ID", OtherKey="PrerequisiteRef")]
-		public EntitySet<Prerequisite> Prerequisites1
-		{
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name= "Course_OtherCourseWhoPrerequisite", Storage="_OtherCoursesWhoPrerequisite", ThisKey="ID", OtherKey="PrerequisiteRef")]
+		public EntitySet<Prerequisite> OtherCoursesWhoPrerequisite
+        {
 			get
 			{
-				return this._Prerequisites1;
+				return this._OtherCoursesWhoPrerequisite;
 			}
 			set
 			{
-				this._Prerequisites1.Assign(value);
+				this._OtherCoursesWhoPrerequisite.Assign(value);
 			}
 		}
 		
@@ -355,16 +355,16 @@ namespace SystemGroup.General.UniversityManagement.Common
 			entity.Course = null;
 		}
 		
-		private void attach_Prerequisites1(Prerequisite entity)
+		private void attach_OtherCoursesWhoPrerequisite(Prerequisite entity)
 		{
 			this.SendPropertyChanging();
-			entity.Course1 = this;
+			entity.PrerequisiteCourse = this;
 		}
 		
-		private void detach_Prerequisites1(Prerequisite entity)
+		private void detach_OtherCoursesWhoPrerequisite(Prerequisite entity)
 		{
 			this.SendPropertyChanging();
-			entity.Course1 = null;
+			entity.PrerequisiteCourse = null;
 		}
 		
 		private void attach_Presentations(Presentation entity)
@@ -1070,7 +1070,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private EntityRef<Course> _Course;
 		
-		private EntityRef<Course> _Course1;
+		private EntityRef<Course> _PrerequisiteCourse;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1089,7 +1089,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		public Prerequisite()
 		{
 			this._Course = default(EntityRef<Course>);
-			this._Course1 = default(EntityRef<Course>);
+			this._PrerequisiteCourse = default(EntityRef<Course>);
 			OnCreated();
 		}
 		
@@ -1148,7 +1148,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 			{
 				if ((this._PrerequisiteRef != value))
 				{
-					if (this._Course1.HasLoadedOrAssignedValue)
+					if (this._PrerequisiteCourse.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1215,36 +1215,36 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Prerequisite1", Storage="_Course1", ThisKey="PrerequisiteRef", OtherKey="ID", IsForeignKey=true)]
-		public Course Course1
-		{
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_OtherCourseWhoPrerequisite", Storage="_PrerequisiteCourse", ThisKey="PrerequisiteRef", OtherKey="ID", IsForeignKey=true)]
+		public Course PrerequisiteCourse
+        {
 			get
 			{
-				return this._Course1.Entity;
+				return this._PrerequisiteCourse.Entity;
 			}
 			set
 			{
-				Course previousValue = this._Course1.Entity;
+				Course previousValue = this._PrerequisiteCourse.Entity;
 				if (((previousValue != value) 
-							|| (this._Course1.HasLoadedOrAssignedValue == false)))
+							|| (this._PrerequisiteCourse.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Course1.Entity = null;
-						previousValue.Prerequisites1.Remove(this);
+						this._PrerequisiteCourse.Entity = null;
+						previousValue.OtherCoursesWhoPrerequisite.Remove(this);
 					}
-					this._Course1.Entity = value;
+					this._PrerequisiteCourse.Entity = value;
 					if ((value != null))
 					{
-						value.Prerequisites1.Add(this);
+						value.OtherCoursesWhoPrerequisite.Add(this);
 						this._PrerequisiteRef = value.ID;
 					}
 					else
 					{
 						this._PrerequisiteRef = default(long);
 					}
-					this.SendPropertyChanged("Course1");
+					this.SendPropertyChanged("PrerequisiteCourse");
 				}
 			}
 		}

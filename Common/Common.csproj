@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Course\Course.cs" />
+    <Compile Include="Course\CourseCredits.cs" />
     <Compile Include="Course\CourseProjection.cs" />
     <Compile Include="Course\ICourseBusiness.cs" />
     <Compile Include="Course\Prerequisite.cs" />

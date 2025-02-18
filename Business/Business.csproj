@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CourseBusiness.cs" />
     <Compile Include="EnrollmentBusiness.cs" />
+    <Compile Include="CourseBusinessValidator.cs" />
     <Compile Include="TimeSlotBusiness.cs" />
     <Compile Include="InstructorBusiness.cs" />
     <Compile Include="PresentationBusiness.cs" />
@@ -62,5 +63,6 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

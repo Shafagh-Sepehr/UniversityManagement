@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
+    <value>Course Cant Be Prerequisite Of It Self</value>
+  </data>
+  <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted" xml:space="preserve">
+    <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Deleted</value>
+  </data>
   <data name="NameIsRequired" xml:space="preserve">
     <value>Name Is Required</value>
+  </data>
+  <data name="PrerequisiteIsrequired" xml:space="preserve">
+    <value>Select The Prerequisite Course</value>
+  </data>
+  <data name="TitleIsRequired" xml:space="preserve">
+    <value>Title Is Required</value>
   </data>
 </root>

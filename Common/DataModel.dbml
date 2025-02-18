@@ -4,7 +4,7 @@
     <Type Name="Course">
       <Column Name="CourseID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="Credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Credits" Type="CourseCredits" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
       <Association Name="Course_Prerequisite" Member="Prerequisites" ThisKey="ID" OtherKey="CourseRef" Type="Prerequisite" />
       <Association Name="Course_Prerequisite1" Member="Prerequisites1" ThisKey="ID" OtherKey="PrerequisiteRef" Type="Prerequisite" />

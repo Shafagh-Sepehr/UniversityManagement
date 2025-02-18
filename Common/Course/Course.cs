@@ -18,21 +18,27 @@ namespace SystemGroup.General.UniversityManagement.Common
         {
             get
             {
-                return LoadOptions.With<Course>(c => c.Prerequisites).With<Course>(c => c.Prerequisites1);
+                return LoadOptions.With<Course>(c => c.Prerequisites);
             }
-
         }
 
         #endregion
 
         #region Methods
 
+        public override void SetDefaultValues()
+        {
+            base.SetDefaultValues();
+
+            Credits = CourseCredits.ThreeCredits;
+        }
+
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
             columns.Add(new TextColumnInfo(nameof(Title), "Course_Title"));
-            columns.Add(new NumericColumnInfo(nameof(Credits), "Course_Credits", NumericType.Integer));
+            columns.Add(new LookupColumnInfo(nameof(Credits), "Course_Credits", nameof(CourseCredits)));
         }
 
         #endregion

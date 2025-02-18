@@ -61,7 +61,7 @@ namespace SystemGroup.General.UniversityManagement.Common
                                     select new
                                     {
                                         EnrollmentID = enrollmentGroup.Key,
-                                        TotalCredits = enrollmentGroup.Sum(c => c.Credits)
+                                        TotalCredits = enrollmentGroup.Sum(c => (int)c.Credits)
                                     };
 
             var enrollmentDetails = from enrollment in inputs

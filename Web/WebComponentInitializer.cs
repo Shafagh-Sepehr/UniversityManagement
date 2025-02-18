@@ -39,6 +39,31 @@ namespace SystemGroup.General.UniversityManagement.Web
 
         #endregion
 
+        #region Course EntityActions
+
+        [AddNewEntityAction(typeof(Course))]
+        public void NewCourseAction()
+        {
+            SgShell.Show<CoursePages.Edit>();
+        }
+
+        [ViewDetailEntityAction(typeof(Course))]
+        public void EditCourse(long[] ids)
+        {
+            foreach (var id in ids)
+            {
+                SgShell.Show<CoursePages.Edit>($"id={id}");
+            }
+        }
+
+        [DeleteEntityAction(typeof(Course))]
+        public void DeleteCourse(long[] ids)
+        {
+            ServiceFactory.Create<ICourseBusiness>().Delete(ids);
+        }
+
+        #endregion
+
         #region Methods
 
         public override List<ComponentLink> RegisterLinks()
@@ -52,9 +77,11 @@ namespace SystemGroup.General.UniversityManagement.Web
                         {
 
                             new ComponentLink("InstructorList", "Links_InstructorList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Instructor"),
+                            new ComponentLink("CourseList", "Links_CourseList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Course"),
                         }),
 
                         new ComponentLink("NewInstructor", "Links_NewInstructor", null, typeof(InstructorPages.Edit), 0),
+                        new ComponentLink("NewCourse", "Links_NewCourse", null, typeof(CoursePages.Edit), 1),
                     })
                 })
             };
