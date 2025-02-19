@@ -18,6 +18,7 @@ namespace SystemGroup.General.UniversityManagement.Common
             base.SetDefaultValues();
 
             State = SemesterState.Registered;
+            Season = SemesterSeason.Fall;
         }
 
         public override void GetColumns(List<ColumnInfo> columns)

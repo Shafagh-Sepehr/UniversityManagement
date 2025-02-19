@@ -129,7 +129,13 @@
   <data name="PrerequisiteIsrequired" xml:space="preserve">
     <value>درس پیش‌نیاز را انتخاب کنید</value>
   </data>
+  <data name="SemesterSeasonIsRequired" xml:space="preserve">
+    <value>فصل تحصیلی را وارد کنید</value>
+  </data>
   <data name="TitleIsRequired" xml:space="preserve">
     <value>عنوان را وارد کنید</value>
+  </data>
+  <data name="YearIsRequired" xml:space="preserve">
+    <value>سال تحصیلی را وارد کنید</value>
   </data>
 </root>

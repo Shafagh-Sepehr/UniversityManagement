@@ -129,7 +129,13 @@
   <data name="PrerequisiteIsrequired" xml:space="preserve">
     <value>Select The Prerequisite Course</value>
   </data>
+  <data name="SemesterSeasonIsRequired" xml:space="preserve">
+    <value>Semester Season Is Required</value>
+  </data>
   <data name="TitleIsRequired" xml:space="preserve">
     <value>Title Is Required</value>
+  </data>
+  <data name="YearIsRequired" xml:space="preserve">
+    <value>Year Is Required</value>
   </data>
 </root>

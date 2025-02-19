@@ -64,6 +64,31 @@ namespace SystemGroup.General.UniversityManagement.Web
 
         #endregion
 
+        #region Semester EntityActions
+
+        [AddNewEntityAction(typeof(Semester))]
+        public void NewSemesterAction()
+        {
+            SgShell.Show<SemesterPages.Edit>();
+        }
+
+        [ViewDetailEntityAction(typeof(Semester))]
+        public void EditSemester(long[] ids)
+        {
+            foreach (var id in ids)
+            {
+                SgShell.Show<SemesterPages.Edit>($"id={id}");
+            }
+        }
+
+        [DeleteEntityAction(typeof(Semester))]
+        public void DeleteSemester(long[] ids)
+        {
+            ServiceFactory.Create<ISemesterBusiness>().Delete(ids);
+        }
+
+        #endregion
+
         #region Methods
 
         public override List<ComponentLink> RegisterLinks()
@@ -78,10 +103,12 @@ namespace SystemGroup.General.UniversityManagement.Web
 
                             new ComponentLink("InstructorList", "Links_InstructorList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Instructor"),
                             new ComponentLink("CourseList", "Links_CourseList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Course"),
+                            new ComponentLink("SemesterList", "Links_SemesterList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Semester"),
                         }),
 
                         new ComponentLink("NewInstructor", "Links_NewInstructor", null, typeof(InstructorPages.Edit), 0),
                         new ComponentLink("NewCourse", "Links_NewCourse", null, typeof(CoursePages.Edit), 1),
+                        new ComponentLink("NewSemester", "Links_NewSemester", null, typeof(SemesterPages.Edit), 2),
                     })
                 })
             };
