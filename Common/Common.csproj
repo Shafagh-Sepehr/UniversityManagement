@@ -60,6 +60,7 @@
     <Compile Include="Instructor\IInstructorBusiness.cs" />
     <Compile Include="Instructor\Instructor.cs" />
     <Compile Include="Instructor\InstructorProjection.cs" />
+    <Compile Include="LogicalResources.cs" />
     <Compile Include="Presentaion\IPresentationBusiness.cs" />
     <Compile Include="Presentaion\Presentation.cs" />
     <Compile Include="Presentaion\PresentationProjection.cs" />
