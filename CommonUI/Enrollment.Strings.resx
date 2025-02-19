@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>تعریف ثبت‌نام</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>واحد</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف ثبت‌نام</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش ثبت‌نام</value>
+  </data>
+  <data name="Enrollment" xml:space="preserve">
+    <value>ثبت نام</value>
   </data>
 </root>

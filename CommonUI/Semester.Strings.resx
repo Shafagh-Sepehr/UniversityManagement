@@ -123,6 +123,15 @@
   <data name="Active" xml:space="preserve">
     <value>فعال</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>تعریف ترم تحصیلی</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف ترم تحصیلی</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش ترم تحصیلی</value>
+  </data>
   <data name="EndSemester" xml:space="preserve">
     <value>اتمام ترم تحصیلی</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Season" xml:space="preserve">
     <value>فصل تحصیلی</value>
+  </data>
+  <data name="Semester" xml:space="preserve">
+    <value>ترم تحصیلی</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>وضعیت</value>

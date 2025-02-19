@@ -123,6 +123,15 @@
   <data name="Active" xml:space="preserve">
     <value>Active</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add Semester</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete Semester</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit Semester</value>
+  </data>
   <data name="EndSemester" xml:space="preserve">
     <value>End Semester</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Season" xml:space="preserve">
     <value>Educational Season</value>
+  </data>
+  <data name="Semester" xml:space="preserve">
+    <value>گ</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>State</value>
