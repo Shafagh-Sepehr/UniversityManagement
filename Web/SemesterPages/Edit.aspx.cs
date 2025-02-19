@@ -16,7 +16,7 @@ namespace SystemGroup.General.UniversityManagement.Web.SemesterPages
 
         public override SgFormView FormView
         {
-            get { return null; }
+            get { return fvwMain; }
         }
 
         public override SgUpdatePanel UpdatePanel
@@ -28,7 +28,7 @@ namespace SystemGroup.General.UniversityManagement.Web.SemesterPages
         {
             get
             {
-                return false;
+                return true;
             }
         }
 
@@ -44,12 +44,12 @@ namespace SystemGroup.General.UniversityManagement.Web.SemesterPages
 
         #region Methods
 
-        //protected override void OnEditorBinding(EditorBindingEventArgs<Semester> e)
-        //{
-        //    base.OnEditorBinding(e);
-        //    e.Context.BindValueTypeProperty(s => s.Year).To(numYear, n => );
-        //    e.Context.BindValueTypeProperty(s=>s.Season).To(lkpSeason);
-        //}
+        protected override void OnEditorBinding(EditorBindingEventArgs<Semester> e)
+        {
+            base.OnEditorBinding(e);
+            //e.Context.BindValueTypeProperty(s => s.Year).To(numYear, n => );
+            //e.Context.BindValueTypeProperty(s => s.Season).To(lkpSeason);
+        }
 
         #endregion
     }

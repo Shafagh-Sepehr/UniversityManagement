@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs"
-    Inherits="SystemGroup.General.UniversityManagement.Web.SemesterPages.Edit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="SystemGroup.General.UniversityManagement.Web.SemesterPages.Edit" %>
 
 <!DOCTYPE html>
 
@@ -14,23 +13,42 @@
             <ContentTemplate>
                 <div runat="server" id="dvMain">
 
-                    <sg:SgFieldSet runat="server">
-                        <sg:SgFieldLayout runat="server">
+                    <sg:SgFormView runat="server" id="fvwMain">
+                        <EditItemTemplate>
 
-                            <sg:SgTableRow runat="server">
-                                <sg:SgTableCell runat="server">
-                                    <sg:SgFieldLabel runat="server" TextKey="Semester_Season" Required="true" />
-                                </sg:SgTableCell>
-                                <sg:SgTableCell runat="server">
-                                    <sg:SgLookup runat="server" ID="lkpSeason" LookupType="SemesterSeason" DbSelectedCode="<%# Bind("Season") %>" />
-                                </sg:SgTableCell>
-                                <sg:SgTableCell runat="server">
-                                    <sg:SgRequiredFieldValidator runat="server" ControlToValidate="lkpSeason" ErrorMessageKey="Messages_SemesterSeasonIsRequired" />
-                                </sg:SgTableCell>
-                            </sg:SgTableRow>
+                            <sg:SgFieldSet runat="server">
+                                <sg:SgFieldLayout runat="server">
 
-                        </sg:SgFieldLayout>
-                    </sg:SgFieldSet>
+                                    <sg:SgTableRow runat="server">
+                                        <sg:SgTableCell runat="server">
+                                            <sg:SgFieldLabel runat="server" TextKey="Semester_Year" Required="True" />
+                                        </sg:SgTableCell>
+                                        <sg:SgTableCell runat="server">
+                                            <sg:sgnumerictextbox runat="server" id="numYear" datatype="System.Int32"
+                                                dbvalue='<%# Bind("Year") %>' />
+                                        </sg:SgTableCell>
+                                        <sg:SgTableCell runat="server">
+                                            <sg:SgRequiredFieldValidator runat="server" ControlToValidate="numYear" ErrorMessageKey="Messages_YearIsRequired" />
+                                        </sg:SgTableCell>
+                                    </sg:SgTableRow>
+
+                                    <sg:SgTableRow runat="server">
+                                        <sg:SgTableCell runat="server">
+                                            <sg:SgFieldLabel runat="server" TextKey="Semester_Season" Required="true" />
+                                        </sg:SgTableCell>
+                                        <sg:SgTableCell runat="server">
+                                            <sg:SgLookup runat="server" ID="lkpSeason" LookupType="SemesterSeason" DbSelectedCode='<%# Bind("Season") %>' />
+                                        </sg:SgTableCell>
+                                        <sg:SgTableCell runat="server">
+                                            <sg:SgRequiredFieldValidator runat="server" ControlToValidate="lkpSeason" ErrorMessageKey="Messages_SemesterSeasonIsRequired" />
+                                        </sg:SgTableCell>
+                                    </sg:SgTableRow>
+
+                                </sg:SgFieldLayout>
+                            </sg:SgFieldSet>
+
+                        </EditItemTemplate>
+                    </sg:SgFormView>
 
                 </div>
             </ContentTemplate>
