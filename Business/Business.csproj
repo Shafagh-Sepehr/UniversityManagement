@@ -53,6 +53,7 @@
     <Compile Include="Businesses\TimeSlotBusiness.cs" />
     <Compile Include="Businesses\InstructorBusiness.cs" />
     <Compile Include="Businesses\PresentationBusiness.cs" />
+    <Compile Include="BusinessValidators\SemesterBusinessValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Businesses\SemesterBusiness.cs" />
     <Compile Include="Businesses\StudentBusiness.cs" />

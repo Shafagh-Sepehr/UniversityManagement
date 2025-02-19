@@ -49,23 +49,5 @@ namespace SystemGroup.General.UniversityManagement.Web.SemesterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvMain;
-
-        /// <summary>
-        /// txtYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SystemGroup.Web.UI.Controls.SgNumericTextBox txtYear;
-
-        /// <summary>
-        /// lkpSeason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SystemGroup.Web.UI.Controls.SgLookup lkpSeason;
     }
 }

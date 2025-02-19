@@ -120,14 +120,20 @@
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>Course Cant Be Prerequisite Of It Self (neither directly nor indirectly)</value>
   </data>
-  <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted" xml:space="preserve">
-    <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Deleted</value>
+  <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
+    <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Changed</value>
   </data>
   <data name="NameIsRequired" xml:space="preserve">
     <value>Name Is Required</value>
   </data>
   <data name="PrerequisiteIsrequired" xml:space="preserve">
     <value>Select The Prerequisite Course</value>
+  </data>
+  <data name="SemesterAlreadyExists" xml:space="preserve">
+    <value>A Semester With This Year And Season Is Already Defined</value>
+  </data>
+  <data name="SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged" xml:space="preserve">
+    <value>Semester Has Other Entities Associated With It Thus Cant Be Changed</value>
   </data>
   <data name="SemesterSeasonIsRequired" xml:space="preserve">
     <value>Semester Season Is Required</value>

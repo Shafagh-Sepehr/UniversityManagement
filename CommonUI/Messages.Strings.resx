@@ -120,14 +120,20 @@
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>رشته پیش‌نیاز های درس نباید به خودش منتهی شود (درسی را اضافه کردید به طور غیر مستقیم پیش‌نیاز خودش می‌شود)</value>
   </data>
-  <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted" xml:space="preserve">
-    <value>این درس پیش‌نیاز درس دیگری است و نمیتواند حذف شود</value>
+  <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
+    <value>این درس پیش‌نیاز درس دیگری است و نمیتواند تغییر کند</value>
   </data>
   <data name="NameIsRequired" xml:space="preserve">
     <value>نام را وارد کنید</value>
   </data>
   <data name="PrerequisiteIsrequired" xml:space="preserve">
     <value>درس پیش‌نیاز را انتخاب کنید</value>
+  </data>
+  <data name="SemesterAlreadyExists" xml:space="preserve">
+    <value>ترمی با این سال و فصل از قبل تعریف شده است</value>
+  </data>
+  <data name="SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged" xml:space="preserve">
+    <value>ترم تحصیلی توسط موجودیت های دیگر استفاده شده و غیرقابل تغییر است</value>
   </data>
   <data name="SemesterSeasonIsRequired" xml:space="preserve">
     <value>فصل تحصیلی را وارد کنید</value>

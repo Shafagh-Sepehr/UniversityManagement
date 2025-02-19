@@ -18,8 +18,11 @@ namespace SystemGroup.General.UniversityManagement.Business
             switch (action)
             {
                 case EntityActionType.Insert:
+                    AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
+                    break;
                 case EntityActionType.Update:
                     AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
+                    AssertCourseIsNotPrerequisiteOfAnyOtherCourse(record);
                     break;
                 case EntityActionType.Delete:
                     AssertCourseIsNotPrerequisiteOfAnyOtherCourse(record);
@@ -31,9 +34,14 @@ namespace SystemGroup.General.UniversityManagement.Business
 
         private void AssertCourseIsNotPrerequisiteOfAnyOtherCourse(Course record)
         {
-            if (record.OtherCoursesWhoPrerequisite.Any())
+            var loadOptions = LoadOptions.With<Course>(r => r.OtherCoursesWhoPrerequisite);
+            var course = ServiceFactory.Create<ICourseBusiness>()
+                .FetchByID(record.ID, loadOptions)
+                .Single();
+
+            if (course.OtherCoursesWhoPrerequisite.Any())
             {
-                throw this.CreateException("Messages_CourseIsPrerequisiteOfOtherCoursesThereforeCantBeDeleted");
+                throw this.CreateException("Messages_CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged");
             }
         }
 
