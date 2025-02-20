@@ -50,7 +50,6 @@
     <Compile Include="Businesses\CourseBusiness.cs" />
     <Compile Include="Businesses\EnrollmentBusiness.cs" />
     <Compile Include="BusinessValidators\CourseBusinessValidator.cs" />
-    <Compile Include="Businesses\TimeSlotBusiness.cs" />
     <Compile Include="Businesses\InstructorBusiness.cs" />
     <Compile Include="Businesses\PresentationBusiness.cs" />
     <Compile Include="BusinessValidators\SemesterBusinessValidator.cs" />

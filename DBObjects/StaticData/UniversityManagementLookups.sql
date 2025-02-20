@@ -13,9 +13,9 @@ EXEC SYS3.AddLookupTranslation @token1, 3, N'en-US', N'Summer'
 
 -----------------------------------------------------------------------
 
-declare @token2 nvarchar(500) = N'gnr3|DayOfWeek'
+declare @token2 nvarchar(500) = N'gnr3|TimeSlotDayOfWeek'
 
-EXEC SYS3.InitializeLookup 'gnr3', 'DayOfWeek', 'روز هفته'
+EXEC SYS3.InitializeLookup 'gnr3', 'TimeSlotDayOfWeek', 'روز هفته'
 EXEC SYS3.AddLookupValue @token2, 1, N'شنبه', 1
 EXEC SYS3.AddLookupValue @token2, 2, N'یکشنبه', 2
 EXEC SYS3.AddLookupValue @token2, 3, N'دوشنبه', 3

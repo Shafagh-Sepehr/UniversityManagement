@@ -299,7 +299,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name= "Course_OtherCourseWhoPrerequisite", Storage="_OtherCoursesWhoPrerequisite", ThisKey="ID", OtherKey="PrerequisiteRef")]
 		public EntitySet<Prerequisite> OtherCoursesWhoPrerequisite
-        {
+		{
 			get
 			{
 				return this._OtherCoursesWhoPrerequisite;
@@ -1217,7 +1217,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_OtherCourseWhoPrerequisite", Storage="_PrerequisiteCourse", ThisKey="PrerequisiteRef", OtherKey="ID", IsForeignKey=true)]
 		public Course PrerequisiteCourse
-        {
+		{
 			get
 			{
 				return this._PrerequisiteCourse.Entity;
@@ -1853,7 +1853,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private long _ID;
 		
-		private int _Day;
+		private TimeSlotDayOfWeek _Day;
 		
 		private int _StartTime;
 		
@@ -1871,7 +1871,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnCreated();
     partial void OnIDChanging(long value);
     partial void OnIDChanged();
-    partial void OnDayChanging(int value);
+    partial void OnDayChanging(TimeSlotDayOfWeek value);
     partial void OnDayChanged();
     partial void OnStartTimeChanging(int value);
     partial void OnStartTimeChanged();
@@ -1909,8 +1909,8 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Day", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int Day
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Day", DbType="Int NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public TimeSlotDayOfWeek Day
 		{
 			get
 			{

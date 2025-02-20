@@ -1,6 +1,6 @@
 ﻿namespace SystemGroup.General.UniversityManagement.Common
 {
-    public enum DayOfWeek
+    public enum TimeSlotDayOfWeek
     {
         Saturday = 1,
         Sunday,

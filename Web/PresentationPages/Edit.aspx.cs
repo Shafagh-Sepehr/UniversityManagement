@@ -1,4 +1,6 @@
-﻿using System.Web.UI;
+﻿using System.Collections.Generic;
+using System.Web.UI;
+using SystemGroup.Framework.Business;
 using SystemGroup.Framework.Logging;
 using SystemGroup.General.UniversityManagement.Common;
 using SystemGroup.Web.UI;
@@ -19,14 +21,36 @@ namespace SystemGroup.General.UniversityManagement.Web.PresentationPages
         {
             get { return updMain; }
         }
+        public override DetailLoadOptions EntityLoadOptions
+        {
+            get
+            {
+                return LoadOptions
+                    .With<Presentation>(p => p.TimeSlots);
+            }
+        }
+
+        protected override IEnumerable<string> ClientSideDetailDataSources
+        {
+            get
+            {
+                yield return ".TimeSlots";
+            }
+        }
 
         #endregion
 
-        protected override void OnEntitySaving(object sender, EntitySavingEventArgs e)
-        {
-            base.OnEntitySaving(sender, e);
+        #region Methods
 
-            SgLogger.Log($"**********************************************************************\n\nCapacity:{CurrentEntity.Capacity}\ncourseref:{CurrentEntity.CourseRef}\ninstref:{CurrentEntity.InstructorRef}\nsemester:{CurrentEntity.SemesterRef}\n\n**********************************************************************", "");
+        protected override void OnEntityLoaded(object sender, EntityLoadedEventArgs e)
+        {
+            base.OnEntityLoaded(sender, e);
+
+            TimeSlot.FillExtraProperties(CurrentEntity.TimeSlots);
         }
+
+        #endregion
+
+
     }
 }

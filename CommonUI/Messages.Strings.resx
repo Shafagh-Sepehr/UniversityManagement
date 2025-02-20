@@ -138,6 +138,12 @@
   <data name="CourseIsRequired" xml:space="preserve">
     <value>درس را انتخاب کنید</value>
   </data>
+  <data name="DayIsRequired" xml:space="preserve">
+    <value>روز را انتخاب کنید</value>
+  </data>
+  <data name="EndTimeMustBeGreaterThanStartTime" xml:space="preserve">
+    <value>زمان پایان کلاس باید بعد از زمان شروع کلاس باشد</value>
+  </data>
   <data name="InstructorIsRequired" xml:space="preserve">
     <value>استاد را انتخاب کنید</value>
   </data>

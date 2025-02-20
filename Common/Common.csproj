@@ -85,10 +85,8 @@
     <Compile Include="Student\IStudentBusiness.cs" />
     <Compile Include="Student\Student.cs" />
     <Compile Include="Student\StudentProjection.cs" />
-    <Compile Include="TimeSlot\DayOfWeek.cs" />
-    <Compile Include="TimeSlot\ITimeSlotBusiness.cs" />
-    <Compile Include="TimeSlot\TimeSlot.cs" />
-    <Compile Include="TimeSlot\TimeSlotProjection.cs" />
+    <Compile Include="Presentaion\TimeSlotDayOfWeek.cs" />
+    <Compile Include="Presentaion\TimeSlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

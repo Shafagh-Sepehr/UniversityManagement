@@ -138,6 +138,12 @@
   <data name="CourseIsRequired" xml:space="preserve">
     <value>Select The Course</value>
   </data>
+  <data name="DayIsRequired" xml:space="preserve">
+    <value>Select The Day</value>
+  </data>
+  <data name="EndTimeMustBeGreaterThanStartTime" xml:space="preserve">
+    <value>End Time Must Be Greater Than Start Time</value>
+  </data>
   <data name="InstructorIsRequired" xml:space="preserve">
     <value>Select The Instructor</value>
   </data>

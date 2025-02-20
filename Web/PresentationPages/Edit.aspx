@@ -10,7 +10,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <sg:SgScriptManager runat="server" ID="scriptManager"></sg:SgScriptManager>
+        <sg:SgScriptManager runat="server" ID="scriptManager">
+            <Scripts>
+                <asp:ScriptReference Path="Edit.js"/>
+            </Scripts>
+        </sg:SgScriptManager>
         <sg:SgUpdatePanel runat="server" ID="updMain">
             <ContentTemplate>
 
@@ -88,6 +92,38 @@
                                 </sg:SgTableRow>
                             </sg:SgMultiColumnLayout>
                         </sg:SgFieldSet>
+
+                        <sg:SgGrid runat="server" GridType="ClientSide"
+                            AllowScroll="True" AllowInsert="True"
+                            AllowEdit="True" AllowDelete="True"
+                            DataSourceID=".TimeSlots" Width="800px"
+                            ID="grdTimeSlots" ValidationGroup="vgGrid">
+                            <Columns>
+
+                                <sg:SgLookupGridColumn PropertyName="DayText" headertext="TimeSlot_Day">
+                                    <EditItemTemplate>
+                                        <sg:SgLookup runat="server" ID="lkpDay" LookupType="TimeSlotDayOfWeek"
+                                                     CbSelectedCode="{binding Day}"
+                                                     OnClientSelectedCodeChanged="lkpDay_clientSelectedCodeChanged" />
+                                        <sg:SgRequiredFieldValidator runat="server" ControlToValidate="lkpDay"
+                                                                     ErrorMessageKey="Messages_DayIsRequired" ValidationGroup="vgGrid"/>
+                                    </EditItemTemplate>
+                                </sg:SgLookupGridColumn>
+                                
+                                <sg:SgTimePickerGridColumn PropertyName="StartTime" headertext="TimeSlot_StartTime">
+                                    <EditItemTemplate>
+                                        <sg:SgTimePicker runat="server" ID="tpStartTime" CbSelectedTime="{binding StartTime}" />
+                                    </EditItemTemplate>
+                                </sg:SgTimePickerGridColumn>
+                                
+                                <sg:SgTimePickerGridColumn PropertyName="EndTime" headertext="TimeSlot_EndTime">
+                                    <EditItemTemplate>
+                                        <sg:SgTimePicker runat="server" ID="tpEndTime" CbSelectedTime="{binding EndTime}" />
+                                    </EditItemTemplate>
+                                </sg:SgTimePickerGridColumn>
+                            </Columns>
+                        </sg:SgGrid>
+
                     </EditItemTemplate>
                 </sg:SgFormView>
             </ContentTemplate>

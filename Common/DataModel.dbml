@@ -82,7 +82,7 @@
   <Table Name="GNR3.TimeSlot" Member="TimeSlots">
     <Type Name="TimeSlot">
       <Column Name="TimeSlotID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Day" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="TimeSlotDayOfWeek" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="StartTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="EndTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PresentationRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
