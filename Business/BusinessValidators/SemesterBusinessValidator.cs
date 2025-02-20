@@ -22,8 +22,8 @@ namespace SystemGroup.General.UniversityManagement.Business
                     break;
                 case EntityActionType.Update:
                     AssertNoReferenceExists(record);
-                    AssertSemesterIsUnique(record);
                     AssertSemesterDidNotChangeOutsideRegisteredState(record);
+                    AssertSemesterIsUnique(record);
                     break;
                 case EntityActionType.Delete:
                     AssertNoReferenceExists(record);
@@ -56,19 +56,19 @@ namespace SystemGroup.General.UniversityManagement.Business
 
         private static bool HasRecordChanged(Semester record, Semester originalSemester)
         {
-            return originalSemester == null || originalSemester.Year != record.Year || originalSemester.Season != record.Season;
+            return originalSemester.Year != record.Year || originalSemester.Season != record.Season;
         }
 
         private void AssertNoReferenceExists(Semester record)
         {
             var loadOptions = LoadOptions.With<Semester>(s => s.Enrollments).With<Semester>(s => s.Presentations);
-            var semester = ServiceFactory.Create<ISemesterBusiness>().FetchByID(record.ID, loadOptions).Single();
+            var originalSemester = ServiceFactory.Create<ISemesterBusiness>().FetchByID(record.ID, loadOptions).Single();
 
-            if (record.Year == semester.Year && record.Season == semester.Season)
+            if (originalSemester == null || !HasRecordChanged(record, originalSemester))
             {
                 return;
             }
-            if (semester.Presentations.Any() || semester.Enrollments.Any())
+            if (originalSemester.Presentations.Any() || originalSemester.Enrollments.Any())
             {
                 throw this.CreateException("Messages_SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged");
             }
