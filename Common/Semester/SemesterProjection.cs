@@ -18,9 +18,9 @@ namespace SystemGroup.General.UniversityManagement.Common
         {
             base.GetColumns(columns);
 
-            columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.State)));
             columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.Year)));
             columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.Season)));
+            columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.State)));
         }
 
         #endregion
