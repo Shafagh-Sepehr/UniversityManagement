@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CantHaveTwoActiveSemesters" xml:space="preserve">
+    <value>فقط یک ترم تحصیلی میتواند فعال باشد، ابتدا ترم فعال را خاتمه دهید</value>
+  </data>
+  <data name="CantHaveTwoSemestersInEnrollmentPhase" xml:space="preserve">
+    <value>فقط یک ترم تحصیلی میتواند در حالت ثبت نام باشد</value>
+  </data>
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>رشته پیش‌نیاز های درس نباید به خودش منتهی شود (درسی را اضافه کردید به طور غیر مستقیم پیش‌نیاز خودش می‌شود)</value>
   </data>
@@ -131,6 +137,9 @@
   </data>
   <data name="SemesterAlreadyExists" xml:space="preserve">
     <value>ترمی با این سال و فصل از قبل تعریف شده است</value>
+  </data>
+  <data name="SemesterCantChangeOutsideRegisteredState" xml:space="preserve">
+    <value>ترم تحصیلی فقط در حالت ثبت شده میتواند تغییر کند</value>
   </data>
   <data name="SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged" xml:space="preserve">
     <value>ترم تحصیلی توسط موجودیت های دیگر استفاده شده و غیرقابل تغییر است</value>

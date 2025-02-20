@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CantHaveTwoActiveSemesters" xml:space="preserve">
+    <value>Cant Have Two Active Semesters</value>
+  </data>
+  <data name="CantHaveTwoSemestersInEnrollmentPhase" xml:space="preserve">
+    <value>Cant Have Two Semesters In Enrollment Phase</value>
+  </data>
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>Course Cant Be Prerequisite Of It Self (neither directly nor indirectly)</value>
   </data>
@@ -131,6 +137,9 @@
   </data>
   <data name="SemesterAlreadyExists" xml:space="preserve">
     <value>A Semester With This Year And Season Is Already Defined</value>
+  </data>
+  <data name="SemesterCantChangeOutsideRegisteredState" xml:space="preserve">
+    <value>Semester Cant Change Outside Registered State</value>
   </data>
   <data name="SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged" xml:space="preserve">
     <value>Semester Has Other Entities Associated With It Thus Cant Be Changed</value>

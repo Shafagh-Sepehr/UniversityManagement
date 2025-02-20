@@ -1,4 +1,8 @@
-﻿using SystemGroup.Framework.StateManagement.ProtoType;
+﻿using System;
+using System.Linq;
+using SystemGroup.Framework.Localization;
+using SystemGroup.Framework.Service;
+using SystemGroup.Framework.StateManagement.ProtoType;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
@@ -23,6 +27,20 @@ namespace SystemGroup.General.UniversityManagement.Common
 
         protected override void DoChangeState(Semester record, SemesterState state, StateChangeContext context)
         {
+            var semesters = ServiceFactory.Create<ISemesterBusiness>().FetchAll();
+
+            switch (state)
+            {
+                case SemesterState.Active when semesters.Any(s => s.State == SemesterState.Active ):
+                    throw this.CreateException("Messages_CantHaveTwoActiveSemesters");
+                case SemesterState.EnrollmentPhase when semesters.Any(s => s.State == SemesterState.EnrollmentPhase):
+                    throw this.CreateException("Messages_CantHaveTwoSemestersInEnrollmentPhase");
+                case SemesterState.Registered:
+                    break;
+                case SemesterState.Finished:
+                    break;
+            }
+
             record.State = state;
         }
 
