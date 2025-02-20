@@ -23,6 +23,7 @@ namespace SystemGroup.General.UniversityManagement.Business
                 case EntityActionType.Update:
                     AssertNoReferenceExists(record);
                     AssertSemesterIsUnique(record);
+                    AssertSemesterDidNotChangeOutsideRegisteredState(record);
                     break;
                 case EntityActionType.Delete:
                     AssertNoReferenceExists(record);
@@ -32,13 +33,30 @@ namespace SystemGroup.General.UniversityManagement.Business
             }
         }
 
+        private void AssertSemesterDidNotChangeOutsideRegisteredState(Semester record)
+        {
+            var semesterBusiness = ServiceFactory.Create<ISemesterBusiness>();
+            var originalSemester = semesterBusiness.FetchByID(record.ID).Single();
+
+            if (record.State != SemesterState.Registered && HasRecordChanged(record, originalSemester))
+            {
+                throw this.CreateException("Messages_SemesterCantChangeOutsideRegisteredState");
+            }
+        }
+
         private void AssertSemesterIsUnique(Semester record)
         {
-            var semesters = ServiceFactory.Create<ISemesterBusiness>().FetchAll();
+            var semesters = ServiceFactory.Create<ISemesterBusiness>().FetchAll().Where(s => s.ID != record.ID);
+
             if (semesters.Any( s => s.Season == record.Season && s.Year == record.Year))
             {
                 throw this.CreateException("Messages_SemesterAlreadyExists");
             }
+        }
+
+        private static bool HasRecordChanged(Semester record, Semester originalSemester)
+        {
+            return originalSemester == null || originalSemester.Year != record.Year || originalSemester.Season != record.Season;
         }
 
         private void AssertNoReferenceExists(Semester record)
