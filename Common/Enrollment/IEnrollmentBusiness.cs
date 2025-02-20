@@ -8,7 +8,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface IEnrollmentBusiness : IBusinessBase<Enrollment>
     {
-        [EntityView("AllEnrollment", "Views_AllEnrollments", typeof(EnrollmentProjection), "Year", IsDefaultView = true)]
+        [EntityView("AllEnrollments", "Views_AllEnrollments", typeof(EnrollmentProjection), "Year", IsDefaultView = true)]
         new IQueryable<Enrollment> FetchAll();
     }
 }

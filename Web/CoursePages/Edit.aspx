@@ -61,7 +61,7 @@
                                 <EditItemTemplate>
                                     <sg:SgSelector ID="sltPrerequisite" runat="server" Width="800px"
                                         ComponentName="SystemGroup.General.UniversityManagement"
-                                        EntityName="Course" ViewName="AllCourse"
+                                        EntityName="Course" ViewName="AllCourses"
                                         OnClientSelectedIndexChanged="sltPrerequisite_selectedIndexChanged"
                                         OnClientItemsRequesting="sltPrerequisite_itemsRequesting"
                                         OnItemsRequested="sltPrerequisite_itemsRequested"

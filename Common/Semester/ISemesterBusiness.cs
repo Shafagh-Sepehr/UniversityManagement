@@ -8,7 +8,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface ISemesterBusiness : IBusinessBase<Semester>
     {
-        [EntityView("AllSemester", "Views_AllSemesters", typeof(SemesterProjection), nameof(Semester.Year), IsDefaultView = true)]
+        [EntityView("AllSemesters", "Views_AllSemesters", typeof(SemesterProjection), nameof(Semester.Year), IsDefaultView = true)]
         new IQueryable<Semester> FetchAll();
     }
 }

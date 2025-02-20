@@ -8,7 +8,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface ITimeSlotBusiness : IBusinessBase<TimeSlot>
     {
-        [EntityView("AllTimeSlot", "Views_AllTimeSlot", typeof(TimeSlotProjection), nameof(TimeSlot.Day), IsDefaultView = true)]
+        [EntityView("AllTimeSlots", "Views_AllTimeSlot", typeof(TimeSlotProjection), nameof(TimeSlot.Day), IsDefaultView = true)]
         new IQueryable<TimeSlot> FetchAll();
     }
 }
