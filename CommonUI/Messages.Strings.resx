@@ -126,11 +126,20 @@
   <data name="CantHaveTwoSemestersInEnrollmentPhase" xml:space="preserve">
     <value>فقط یک ترم تحصیلی میتواند در حالت ثبت نام باشد</value>
   </data>
+  <data name="CapacityIsRequired" xml:space="preserve">
+    <value>ظرفیت را وارد کنید</value>
+  </data>
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>رشته پیش‌نیاز های درس نباید به خودش منتهی شود (درسی را اضافه کردید به طور غیر مستقیم پیش‌نیاز خودش می‌شود)</value>
   </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>این درس پیش‌نیاز درس دیگری است و نمیتواند تغییر کند</value>
+  </data>
+  <data name="CourseIsRequired" xml:space="preserve">
+    <value>درس را انتخاب کنید</value>
+  </data>
+  <data name="InstructorIsRequired" xml:space="preserve">
+    <value>استاد را انتخاب کنید</value>
   </data>
   <data name="NameIsRequired" xml:space="preserve">
     <value>نام را وارد کنید</value>
@@ -146,6 +155,9 @@
   </data>
   <data name="SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged" xml:space="preserve">
     <value>ترم تحصیلی توسط موجودیت های دیگر استفاده شده و غیرقابل تغییر است</value>
+  </data>
+  <data name="SemesterIsRequired" xml:space="preserve">
+    <value>ترم تحصیلی را انتخاب کنید</value>
   </data>
   <data name="SemesterSeasonIsRequired" xml:space="preserve">
     <value>فصل تحصیلی را وارد کنید</value>

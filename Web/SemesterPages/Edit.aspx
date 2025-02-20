@@ -26,7 +26,7 @@ Title="Semester_Semester" %>
                                             <sg:SgFieldLabel runat="server" TextKey="Labels_Year" Required="True" />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
-                                            <sg:sgnumerictextbox runat="server" id="numYear" datatype="System.Int32"
+                                            <sg:SgNumericTextBox runat="server" id="numYear" datatype="System.Int32"
                                                                  MaxLength="4" MaxValue="9999" MinValue="1350"
                                                 dbvalue='<%# Bind("Year") %>' />
                                         </sg:SgTableCell>

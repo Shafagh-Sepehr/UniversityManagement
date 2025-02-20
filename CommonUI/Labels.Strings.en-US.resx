@@ -120,6 +120,12 @@
   <data name="Advisor" xml:space="preserve">
     <value>Advisor</value>
   </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Course</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>Credits</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="Season" xml:space="preserve">
     <value>Educational Season</value>
+  </data>
+  <data name="Semester" xml:space="preserve">
+    <value>Semester</value>
   </data>
   <data name="Student" xml:space="preserve">
     <value>Student</value>

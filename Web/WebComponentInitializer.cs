@@ -114,6 +114,31 @@ namespace SystemGroup.General.UniversityManagement.Web
 
         #endregion
 
+        #region Presentation EntityActions
+
+        [AddNewEntityAction(typeof(Presentation))]
+        public void NewPresentationAction()
+        {
+            SgShell.Show<PresentationPages.Edit>();
+        }
+
+        [ViewDetailEntityAction(typeof(Presentation))]
+        public void EditPresentation(long[] ids)
+        {
+            foreach (var id in ids)
+            {
+                SgShell.Show<PresentationPages.Edit>($"id={id}");
+            }
+        }
+
+        [DeleteEntityAction(typeof(Presentation))]
+        public void DeletePresentation(long[] ids)
+        {
+            ServiceFactory.Create<IPresentationBusiness>().Delete(ids);
+        }
+
+        #endregion
+
         #region Methods
 
         public override List<ComponentLink> RegisterLinks()
@@ -133,12 +158,15 @@ namespace SystemGroup.General.UniversityManagement.Web
                                 "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Semester"),
                             new ComponentLink("StudentList", "Links_StudentList", null ,
                                 "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Student"),
+                            new ComponentLink("PresentationList", "Links_PresentationList", null ,
+                                "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Presentation"),
                         }),
 
                         new ComponentLink("NewInstructor", "Links_NewInstructor", null, typeof(InstructorPages.Edit), 0),
                         new ComponentLink("NewCourse", "Links_NewCourse", null, typeof(CoursePages.Edit), 1),
                         new ComponentLink("NewSemester", "Links_NewSemester", null, typeof(SemesterPages.Edit), 2),
                         new ComponentLink("NewStudent", "Links_NewStudent", null, typeof(StudentPages.Edit), 3),
+                        new ComponentLink("NewPresentation", "Links_NewPresentation", null, typeof(PresentationPages.Edit), 4),
                     })
                 })
             };

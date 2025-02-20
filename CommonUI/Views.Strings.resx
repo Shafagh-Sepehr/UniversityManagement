@@ -135,4 +135,7 @@
   <data name="AllStudents" xml:space="preserve">
     <value>همه دانشجویان</value>
   </data>
+  <data name="UnStartedSemesters" xml:space="preserve">
+    <value>ترم های پایان شروع نشده</value>
+  </data>
 </root>

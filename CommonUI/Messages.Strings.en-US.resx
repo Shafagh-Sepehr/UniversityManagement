@@ -126,11 +126,20 @@
   <data name="CantHaveTwoSemestersInEnrollmentPhase" xml:space="preserve">
     <value>Cant Have Two Semesters In Enrollment Phase</value>
   </data>
+  <data name="CapacityIsRequired" xml:space="preserve">
+    <value>Capacity Is Required</value>
+  </data>
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>Course Cant Be Prerequisite Of It Self (neither directly nor indirectly)</value>
   </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Changed</value>
+  </data>
+  <data name="CourseIsRequired" xml:space="preserve">
+    <value>Select The Course</value>
+  </data>
+  <data name="InstructorIsRequired" xml:space="preserve">
+    <value>Select The Instructor</value>
   </data>
   <data name="NameIsRequired" xml:space="preserve">
     <value>Name Is Required</value>
@@ -146,6 +155,9 @@
   </data>
   <data name="SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged" xml:space="preserve">
     <value>Semester Has Other Entities Associated With It Thus Cant Be Changed</value>
+  </data>
+  <data name="SemesterIsRequired" xml:space="preserve">
+    <value>Select The Semester</value>
   </data>
   <data name="SemesterSeasonIsRequired" xml:space="preserve">
     <value>Semester Season Is Required</value>

@@ -132,11 +132,17 @@
   <data name="NewInstructor" xml:space="preserve">
     <value>تعریف استاد</value>
   </data>
+  <data name="NewPresentation" xml:space="preserve">
+    <value>تعریف ارائه درس</value>
+  </data>
   <data name="NewSemester" xml:space="preserve">
     <value>تعریف ترم تحصیلی</value>
   </data>
   <data name="NewStudent" xml:space="preserve">
     <value>تعریف دانشجو</value>
+  </data>
+  <data name="PresentationList" xml:space="preserve">
+    <value>فهرست ارائه درس</value>
   </data>
   <data name="SemesterList" xml:space="preserve">
     <value>فهرست ترم تحصیلی</value>

@@ -132,11 +132,17 @@
   <data name="Edit" xml:space="preserve">
     <value>ویرایش ترم تحصیلی</value>
   </data>
+  <data name="EndEnrollmentPhase" xml:space="preserve">
+    <value>پایان بازه ثبت نام</value>
+  </data>
   <data name="EndSemester" xml:space="preserve">
     <value>اتمام ترم تحصیلی</value>
   </data>
   <data name="EnrollmentPhase" xml:space="preserve">
     <value>بازه ثبت نام</value>
+  </data>
+  <data name="Fall" xml:space="preserve">
+    <value>پاییز</value>
   </data>
   <data name="Finished" xml:space="preserve">
     <value>اتمام یافته</value>
@@ -150,8 +156,14 @@
   <data name="Semester" xml:space="preserve">
     <value>ترم تحصیلی</value>
   </data>
+  <data name="Spring" xml:space="preserve">
+    <value>بهار</value>
+  </data>
   <data name="State" xml:space="preserve">
     <value>وضعیت</value>
+  </data>
+  <data name="Summer" xml:space="preserve">
+    <value>تابستان</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>سال تحصیلی</value>

@@ -132,7 +132,13 @@
   <data name="Edit" xml:space="preserve">
     <value>ویرایش ارائه درس</value>
   </data>
+  <data name="InstructorName" xml:space="preserve">
+    <value>نام استاد</value>
+  </data>
   <data name="Presentation" xml:space="preserve">
     <value>ارائه درس</value>
+  </data>
+  <data name="SemesterTime" xml:space="preserve">
+    <value>ترم تحصیلی</value>
   </data>
 </root>

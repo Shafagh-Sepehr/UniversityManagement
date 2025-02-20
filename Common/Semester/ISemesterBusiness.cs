@@ -10,5 +10,8 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         [EntityView("AllSemesters", "Views_AllSemesters", typeof(SemesterProjection), nameof(Semester.Year), IsDefaultView = true)]
         new IQueryable<Semester> FetchAll();
+
+        [EntityView("UnstartedSemesters", "Views_UnstartedSemesters", typeof(SemesterProjection), nameof(Semester.Year), IsDefaultView = true)]
+        IQueryable<Semester> FetchAllUnstartedSemesters();
     }
 }

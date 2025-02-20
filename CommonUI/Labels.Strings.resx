@@ -120,6 +120,12 @@
   <data name="Advisor" xml:space="preserve">
     <value>استاد راهنما</value>
   </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>ظرفیت</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>درس</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>تعداد واحد</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="Season" xml:space="preserve">
     <value>فصل تحصیلی</value>
+  </data>
+  <data name="Semester" xml:space="preserve">
+    <value>ترم</value>
   </data>
   <data name="Student" xml:space="preserve">
     <value>دانشجو</value>

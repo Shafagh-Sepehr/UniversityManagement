@@ -132,11 +132,17 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit Semester</value>
   </data>
+  <data name="EndEnrollmentPhase" xml:space="preserve">
+    <value>End Enrollment Phase</value>
+  </data>
   <data name="EndSemester" xml:space="preserve">
     <value>End Semester</value>
   </data>
   <data name="EnrollmentPhase" xml:space="preserve">
     <value>Enrollment Phase</value>
+  </data>
+  <data name="Fall" xml:space="preserve">
+    <value>Fall</value>
   </data>
   <data name="Finished" xml:space="preserve">
     <value>Finished</value>
@@ -150,8 +156,14 @@
   <data name="Semester" xml:space="preserve">
     <value>گ</value>
   </data>
+  <data name="Spring" xml:space="preserve">
+    <value>Spring</value>
+  </data>
   <data name="State" xml:space="preserve">
     <value>State</value>
+  </data>
+  <data name="Summer" xml:space="preserve">
+    <value>Summer</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Educational Year</value>
