@@ -20,7 +20,7 @@ Title="Instructor_Instructor" %>
 
                             <sg:sgtablerow runat="server">
                                 <sg:sgtablecell runat="server">
-                                    <sg:SgFieldLabel runat="server" TextKey="Labels_Instructor" Required="True"/>
+                                    <sg:SgFieldLabel runat="server" TextKey="Labels_Name" Required="True"/>
                                 </sg:sgtablecell>
                                 <sg:sgtablecell runat="server">
                                     <sg:SgTextBox runat="server" ID="txtName"/>

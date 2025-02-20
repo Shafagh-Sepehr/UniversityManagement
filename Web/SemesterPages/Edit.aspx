@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="SystemGroup.General.UniversityManagement.Web.SemesterPages.Edit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs"
+Inherits="SystemGroup.General.UniversityManagement.Web.SemesterPages.Edit"
+Title="Semester_Semester" %>
 
 <!DOCTYPE html>
 
@@ -21,10 +23,11 @@
 
                                     <sg:SgTableRow runat="server">
                                         <sg:SgTableCell runat="server">
-                                            <sg:SgFieldLabel runat="server" TextKey="Semester_Year" Required="True" />
+                                            <sg:SgFieldLabel runat="server" TextKey="Labels_Year" Required="True" />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:sgnumerictextbox runat="server" id="numYear" datatype="System.Int32"
+                                                                 MaxLength="4" MaxValue="9999" MinValue="1350"
                                                 dbvalue='<%# Bind("Year") %>' />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
@@ -34,7 +37,7 @@
 
                                     <sg:SgTableRow runat="server">
                                         <sg:SgTableCell runat="server">
-                                            <sg:SgFieldLabel runat="server" TextKey="Semester_Season" Required="true" />
+                                            <sg:SgFieldLabel runat="server" TextKey="Labels_Season" Required="true" />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:SgLookup runat="server" ID="lkpSeason" LookupType="SemesterSeason" DbSelectedCode='<%# Bind("Season") %>' />

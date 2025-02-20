@@ -44,13 +44,6 @@ namespace SystemGroup.General.UniversityManagement.Web.SemesterPages
 
         #region Methods
 
-        protected override void OnEditorBinding(EditorBindingEventArgs<Semester> e)
-        {
-            base.OnEditorBinding(e);
-            //e.Context.BindValueTypeProperty(s => s.Year).To(numYear, n => );
-            //e.Context.BindValueTypeProperty(s => s.Season).To(lkpSeason);
-        }
-
         #endregion
     }
 }

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Advisor" xml:space="preserve">
+    <value>Advisor</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>Credits</value>
   </data>
@@ -126,6 +129,12 @@
   <data name="Instructor" xml:space="preserve">
     <value>Instructor</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Season" xml:space="preserve">
+    <value>Educational Season</value>
+  </data>
   <data name="Student" xml:space="preserve">
     <value>Student</value>
   </data>
@@ -134,5 +143,8 @@
   </data>
   <data name="University" xml:space="preserve">
     <value>University</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Educational Year</value>
   </data>
 </root>

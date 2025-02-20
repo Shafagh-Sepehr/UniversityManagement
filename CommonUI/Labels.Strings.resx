@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Advisor" xml:space="preserve">
+    <value>استاد راهنما</value>
+  </data>
   <data name="Credits" xml:space="preserve">
     <value>تعداد واحد</value>
   </data>
@@ -126,6 +129,12 @@
   <data name="Instructor" xml:space="preserve">
     <value>استاد</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Season" xml:space="preserve">
+    <value>فصل تحصیلی</value>
+  </data>
   <data name="Student" xml:space="preserve">
     <value>دانشجو</value>
   </data>
@@ -134,5 +143,8 @@
   </data>
   <data name="University" xml:space="preserve">
     <value>دانشگاه</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>سال تحصیلی</value>
   </data>
 </root>
