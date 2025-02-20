@@ -135,8 +135,14 @@
   <data name="NewSemester" xml:space="preserve">
     <value>تعریف ترم تحصیلی</value>
   </data>
+  <data name="NewStudent" xml:space="preserve">
+    <value>تعریف دانشجو</value>
+  </data>
   <data name="SemesterList" xml:space="preserve">
     <value>فهرست ترم تحصیلی</value>
+  </data>
+  <data name="StudentList" xml:space="preserve">
+    <value>فهرست دانشجو</value>
   </data>
   <data name="UniversityManagement" xml:space="preserve">
     <value>مدیریت دانشگاه</value>

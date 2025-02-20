@@ -135,8 +135,14 @@
   <data name="NewSemester" xml:space="preserve">
     <value>New Semester</value>
   </data>
+  <data name="NewStudent" xml:space="preserve">
+    <value>New Student</value>
+  </data>
   <data name="SemesterList" xml:space="preserve">
     <value>Semester List</value>
+  </data>
+  <data name="StudentList" xml:space="preserve">
+    <value>Student List</value>
   </data>
   <data name="UniversityManagement" xml:space="preserve">
     <value>University Management</value>
