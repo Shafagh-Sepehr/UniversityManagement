@@ -89,6 +89,31 @@ namespace SystemGroup.General.UniversityManagement.Web
 
         #endregion
 
+        #region Student EntityActions
+
+        [AddNewEntityAction(typeof(Student))]
+        public void NewStudentAction()
+        {
+            SgShell.Show<StudentPages.Edit>();
+        }
+
+        [ViewDetailEntityAction(typeof(Student))]
+        public void EditStudent(long[] ids)
+        {
+            foreach (var id in ids)
+            {
+                SgShell.Show<StudentPages.Edit>($"id={id}");
+            }
+        }
+
+        [DeleteEntityAction(typeof(Student))]
+        public void DeleteStudent(long[] ids)
+        {
+            ServiceFactory.Create<IStudentBusiness>().Delete(ids);
+        }
+
+        #endregion
+
         #region Methods
 
         public override List<ComponentLink> RegisterLinks()
@@ -101,14 +126,19 @@ namespace SystemGroup.General.UniversityManagement.Web
                         new ComponentLink("Lists", "Links_Lists", "~/Framework/UI/Shell/Shells/Next/Assets/MainMenuIcons/General/BaseData/Lists.svg", null ,0 , new[]
                         {
 
-                            new ComponentLink("InstructorList", "Links_InstructorList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Instructor"),
+                            new ComponentLink("InstructorList", "Links_InstructorList", null ,
+                                "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Instructor"),
                             new ComponentLink("CourseList", "Links_CourseList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Course"),
-                            new ComponentLink("SemesterList", "Links_SemesterList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Semester"),
+                            new ComponentLink("SemesterList", "Links_SemesterList", null ,
+                                "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Semester"),
+                            new ComponentLink("StudentList", "Links_StudentList", null ,
+                                "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Student"),
                         }),
 
                         new ComponentLink("NewInstructor", "Links_NewInstructor", null, typeof(InstructorPages.Edit), 0),
                         new ComponentLink("NewCourse", "Links_NewCourse", null, typeof(CoursePages.Edit), 1),
                         new ComponentLink("NewSemester", "Links_NewSemester", null, typeof(SemesterPages.Edit), 2),
+                        new ComponentLink("NewStudent", "Links_NewStudent", null, typeof(StudentPages.Edit), 3),
                     })
                 })
             };
