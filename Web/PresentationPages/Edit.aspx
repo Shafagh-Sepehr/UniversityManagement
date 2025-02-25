@@ -79,6 +79,7 @@
                                                 </sg:SgTableCell>
                                                 <sg:SgTableCell runat="server">
                                                     <sg:SgNumericTextBox runat="server" ID="numCapacity" DataType="System.Int32"
+                                                                         MinValue="0" MaxValue="1000"
                                                         DbValue='<%# Bind("Capacity") %>' />
                                                 </sg:SgTableCell>
                                                 <sg:SgTableCell runat="server">

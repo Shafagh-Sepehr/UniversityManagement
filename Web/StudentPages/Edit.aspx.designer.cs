@@ -51,21 +51,12 @@ namespace SystemGroup.General.UniversityManagement.Web.StudentPages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvMain;
 
         /// <summary>
-        /// txtName control.
+        /// fvwMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SystemGroup.Web.UI.Controls.SgTextBox txtName;
-
-        /// <summary>
-        /// sltAdvisor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SystemGroup.Web.UI.Controls.SgSelector sltAdvisor;
+        protected global::SystemGroup.Web.UI.Controls.SgFormView fvwMain;
     }
 }

@@ -26,7 +26,7 @@ namespace SystemGroup.General.UniversityManagement.Business
                     AssertSemesterIsUnique(record);
                     break;
                 case EntityActionType.Delete:
-                    AssertNoReferenceExists(record);
+                    AssertNoReferenceExistsForDelete(record);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);
@@ -68,6 +68,17 @@ namespace SystemGroup.General.UniversityManagement.Business
             {
                 return;
             }
+            if (originalSemester.Presentations.Any() || originalSemester.Enrollments.Any())
+            {
+                throw this.CreateException("Messages_SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged");
+            }
+        }
+
+        private void AssertNoReferenceExistsForDelete(Semester record)
+        {
+            var loadOptions = LoadOptions.With<Semester>(s => s.Enrollments).With<Semester>(s => s.Presentations);
+            var originalSemester = ServiceFactory.Create<ISemesterBusiness>().FetchByID(record.ID, loadOptions).Single();
+
             if (originalSemester.Presentations.Any() || originalSemester.Enrollments.Any())
             {
                 throw this.CreateException("Messages_SemesterHasOtherEntitiesAssociatedWithItThusCantBeChanged");

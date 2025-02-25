@@ -81,6 +81,7 @@
     <EmbeddedResource Include="StudentPages\Edit.aspx" />
     <EmbeddedResource Include="PresentationPages\Edit.aspx" />
     <EmbeddedResource Include="PresentationPages\Edit.js" />
+    <EmbeddedResource Include="EnrollmentPages\Edit.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +90,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CoursePages\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentPages\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnrollmentPages\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="InstructorPages\Edit.aspx.cs">

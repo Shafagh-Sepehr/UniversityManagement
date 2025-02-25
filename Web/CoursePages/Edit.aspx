@@ -30,7 +30,7 @@
                                     <sg:SgTextBox runat="server" id="txtTitle" />
                                 </sg:sgtablecell>
                                 <sg:sgtablecell runat="server">
-                                    <sg:sgrequiredfieldvalidator runat="server" controltovalidate="txtTitle" errormessage="Messages_TitleIsRequired" />
+                                    <sg:sgrequiredfieldvalidator runat="server" controltovalidate="txtTitle" ErrorMessageKey="Messages_TitleIsRequired" />
                                 </sg:sgtablecell>
                             </sg:sgtablerow>
 
@@ -40,10 +40,10 @@
                                     <sg:sgfieldlabel runat="server" textkey="Labels_Credits" required="True" />
                                 </sg:sgtablecell>
                                 <sg:sgtablecell runat="server">
-                                    <sg:sglookup runat="server" id="lkpCredits" lookuptype="CourseCredits" required="true" />
+                                    <sg:sglookup runat="server" id="lkpCredits" lookuptype="CourseCredits"  />
                                 </sg:sgtablecell>
                                 <sg:sgtablecell runat="server">
-                                    <sg:sgrequiredfieldvalidator runat="server" controltovalidate="lkpCredits" errormessage="ErrorMessage" />
+                                    <sg:sgrequiredfieldvalidator runat="server" controltovalidate="lkpCredits" errormessagekey="Messages_CourseCreditsAreRequired" />
                                 </sg:sgtablecell>
                             </sg:sgtablerow>
 

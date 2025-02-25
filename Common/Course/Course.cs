@@ -9,8 +9,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(ICourseBusiness))]
-    //[SearchFields(nameof(Title), nameof(Credits))]
-    //[SearchFields] TODO check if this throws exception
+    [SearchFields(nameof(Title), nameof(Credits))]
     partial class Course : Entity
     {
         #region Properties

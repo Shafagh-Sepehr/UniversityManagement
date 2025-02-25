@@ -132,6 +132,9 @@
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>رشته پیش‌نیاز های درس نباید به خودش منتهی شود (درسی را اضافه کردید به طور غیر مستقیم پیش‌نیاز خودش می‌شود)</value>
   </data>
+  <data name="CourseCreditsAreRequired" xml:space="preserve">
+    <value>تعداد واحد درس را انتخاب کنید</value>
+  </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>این درس پیش‌نیاز درس دیگری است و نمیتواند تغییر کند</value>
   </data>
@@ -144,6 +147,9 @@
   <data name="EndTimeMustBeGreaterThanStartTime" xml:space="preserve">
     <value>زمان پایان کلاس باید بعد از زمان شروع کلاس باشد</value>
   </data>
+  <data name="InstructorIsNotFree" xml:space="preserve">
+    <value>بازه روز {0} ساعت {1} تا {2} کلاس متلاقی با درس {3} ارائه شده توسط همین استاد در ساعت {4} تا {5} است</value>
+  </data>
   <data name="InstructorIsRequired" xml:space="preserve">
     <value>استاد را انتخاب کنید</value>
   </data>
@@ -152,6 +158,12 @@
   </data>
   <data name="PrerequisiteIsrequired" xml:space="preserve">
     <value>درس پیش‌نیاز را انتخاب کنید</value>
+  </data>
+  <data name="PresentationHasOtherEntitiesAssociatedWithItThusCantBeDeleted" xml:space="preserve">
+    <value>ارائه درس اخذ شده و غیرقابل حذف است، ابتدا اخذ قلم های ثبت نام را حذف کنید</value>
+  </data>
+  <data name="PresentationMustHaveTimeSlots" xml:space="preserve">
+    <value>ارائه درس باید حداقل یک بازه زمانی داشته باشد</value>
   </data>
   <data name="SemesterAlreadyExists" xml:space="preserve">
     <value>ترمی با این سال و فصل از قبل تعریف شده است</value>
@@ -167,6 +179,12 @@
   </data>
   <data name="SemesterSeasonIsRequired" xml:space="preserve">
     <value>فصل تحصیلی را وارد کنید</value>
+  </data>
+  <data name="StudentIsRequired" xml:space="preserve">
+    <value>دانشجو را انتخاب کنید</value>
+  </data>
+  <data name="TimeSlotsShouldNotCollide" xml:space="preserve">
+    <value>بازه های زمانی نباید با هم تداخل داشته باشند</value>
   </data>
   <data name="TitleIsRequired" xml:space="preserve">
     <value>عنوان را وارد کنید</value>

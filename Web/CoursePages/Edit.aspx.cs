@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -89,10 +90,7 @@ namespace SystemGroup.General.UniversityManagement.Web.CoursePages
                 .Select(Convert.ToInt64)
                 .ToList();
 
-            if (CurrentEntity != null)
-            {
-                ignoredIDs.Add(CurrentEntity.ID);
-            }
+            ignoredIDs.Add(CurrentEntity.ID);
 
             slt.FilterExpression = o => !ignoredIDs.Contains(((Entity)o).ID);
         }

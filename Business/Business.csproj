@@ -52,6 +52,7 @@
     <Compile Include="BusinessValidators\CourseBusinessValidator.cs" />
     <Compile Include="Businesses\InstructorBusiness.cs" />
     <Compile Include="Businesses\PresentationBusiness.cs" />
+    <Compile Include="BusinessValidators\PresentationBusinessValidator.cs" />
     <Compile Include="BusinessValidators\SemesterBusinessValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Businesses\SemesterBusiness.cs" />

@@ -16,7 +16,7 @@ namespace SystemGroup.General.UniversityManagement.Web.StudentPages
 
         public override SgFormView FormView
         {
-            get { return null; }
+            get { return fvwMain; }
         }
 
         public override SgUpdatePanel UpdatePanel
@@ -28,7 +28,7 @@ namespace SystemGroup.General.UniversityManagement.Web.StudentPages
         {
             get
             {
-                return false;
+                return true;
             }
         }
 
@@ -44,13 +44,6 @@ namespace SystemGroup.General.UniversityManagement.Web.StudentPages
 
         #region Methods
 
-        protected override void OnEditorBinding(EditorBindingEventArgs<Student> e)
-        {
-            base.OnEditorBinding(e);
-
-            e.Context.BindProperty(s => s.Name).To(txtName);
-            e.Context.BindValueTypeProperty(s => s.AdvisorRef).To(sltAdvisor);
-        }
 
         #endregion
     }

@@ -132,6 +132,9 @@
   <data name="CourseCantBePrerequisiteOfItSelf" xml:space="preserve">
     <value>Course Cant Be Prerequisite Of It Self (neither directly nor indirectly)</value>
   </data>
+  <data name="CourseCreditsAreRequired" xml:space="preserve">
+    <value>Select The Course's Credit Count</value>
+  </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Changed</value>
   </data>
@@ -144,6 +147,9 @@
   <data name="EndTimeMustBeGreaterThanStartTime" xml:space="preserve">
     <value>End Time Must Be Greater Than Start Time</value>
   </data>
+  <data name="InstructorIsNotFree" xml:space="preserve">
+    <value>The Time Slot In {0} From {1} To {2} Collides {3} Presented By This Instructor Starting At {4} To {5}</value>
+  </data>
   <data name="InstructorIsRequired" xml:space="preserve">
     <value>Select The Instructor</value>
   </data>
@@ -152,6 +158,12 @@
   </data>
   <data name="PrerequisiteIsrequired" xml:space="preserve">
     <value>Select The Prerequisite Course</value>
+  </data>
+  <data name="PresentationHasOtherEntitiesAssociatedWithItThusCantBeDeleted" xml:space="preserve">
+    <value>Presentation Has Other Entities Associated With It Thus Cant Be Deleted</value>
+  </data>
+  <data name="PresentationMustHaveTimeSlots" xml:space="preserve">
+    <value>Presentation Must Have Time Slots</value>
   </data>
   <data name="SemesterAlreadyExists" xml:space="preserve">
     <value>A Semester With This Year And Season Is Already Defined</value>
@@ -167,6 +179,12 @@
   </data>
   <data name="SemesterSeasonIsRequired" xml:space="preserve">
     <value>Semester Season Is Required</value>
+  </data>
+  <data name="StudentIsRequired" xml:space="preserve">
+    <value>Select The Student</value>
+  </data>
+  <data name="TimeSlotsShouldNotCollide" xml:space="preserve">
+    <value>Time Slots Should Not Collide</value>
   </data>
   <data name="TitleIsRequired" xml:space="preserve">
     <value>Title Is Required</value>
