@@ -45,10 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Course.Strings.en-US.resx" />
-    <EmbeddedResource Include="Course.Strings.resx" />
+    <EmbeddedResource Include="Course.Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Instructor.Strings.en-US.resx" />
     <EmbeddedResource Include="Instructor.Strings.resx" />
-    <EmbeddedResource Include="Labels.Strings.en-US.resx" />
+    <EmbeddedResource Include="Labels.Strings.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Labels.Strings.resx" />
     <EmbeddedResource Include="Links.Strings.en-US.resx" />
     <EmbeddedResource Include="Links.Strings.resx" />
@@ -67,7 +71,9 @@
     <EmbeddedResource Include="EnrollmentItem.Strings.en-US.resx" />
     <EmbeddedResource Include="EnrollmentItem.Strings.resx" />
     <EmbeddedResource Include="Student.Strings.en-US.resx" />
-    <EmbeddedResource Include="Student.Strings.resx" />
+    <EmbeddedResource Include="Student.Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="TimeSlot.Strings.en-US.resx" />
     <EmbeddedResource Include="TimeSlot.Strings.resx" />
     <EmbeddedResource Include="Views.Strings.en-US.resx" />

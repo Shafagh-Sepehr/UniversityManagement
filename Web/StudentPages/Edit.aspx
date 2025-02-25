@@ -39,7 +39,7 @@
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:SgSelector runat="server" ID="sltAdvisor" ComponentName="SystemGroup.General.UniversityManagement"
-                                                EntityName="Instructor" ViewName="AllInstructors" dbselectedid="<%# Bind("AdvisorRef") %>" />
+                                                EntityName="Instructor" ViewName="AllInstructors" dbselectedid='<%# Bind("AdvisorRef") %>' />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:SgRequiredFieldValidator runat="server" ControlToValidate="sltAdvisor" ErrorMessageKey="Messages_AdvisorIsRequired" />

@@ -120,6 +120,9 @@
   <data name="Add" xml:space="preserve">
     <value>Add Student</value>
   </data>
+  <data name="Advisor" xml:space="preserve">
+    <value>Advisor</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete Student</value>
   </data>
