@@ -165,6 +165,9 @@
   <data name="PresentationMustHaveTimeSlots" xml:space="preserve">
     <value>Presentation Must Have Time Slots</value>
   </data>
+  <data name="SelectStudentFirst" xml:space="preserve">
+    <value>Select Student First</value>
+  </data>
   <data name="SemesterAlreadyExists" xml:space="preserve">
     <value>A Semester With This Year And Season Is Already Defined</value>
   </data>

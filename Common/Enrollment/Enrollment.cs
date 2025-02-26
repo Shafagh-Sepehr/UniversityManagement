@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SystemGroup.Framework.Business;
 using SystemGroup.Framework.Common;
+using SystemGroup.Framework.Localization;
 using SystemGroup.Framework.MetaData;
 using SystemGroup.Framework.MetaData.Mapping;
+using SystemGroup.Framework.Service;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
@@ -12,13 +15,34 @@ namespace SystemGroup.General.UniversityManagement.Common
     [SearchFields("Year")] //TODO check if this works
     partial class Enrollment : Entity
     {
-        #region Methods
+
+        #region Properties
 
         public override DetailLoadOptions DeleteLoadOptions
         {
             get
             {
                 return LoadOptions.With<Enrollment>(i => i.EnrollmentItems);
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        public override void SetDefaultValues()
+        {
+            base.SetDefaultValues();
+
+            SemesterRef = ServiceFactory.Create<ISemesterBusiness>()
+                .FetchAll()
+                .Where(s => s.State == SemesterState.EnrollmentPhase)
+                .Select(s => s.ID)
+                .SingleOrDefault();
+
+            if (SemesterRef == 0)
+            {
+                throw this.CreateException("Messages_EnrollmentPhaseHasNotBegun");
             }
         }
 

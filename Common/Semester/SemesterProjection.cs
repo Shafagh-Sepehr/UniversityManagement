@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using SystemGroup.Framework.Common;
+using SystemGroup.Framework.Exceptions;
+using SystemGroup.Framework.Localization;
 
 namespace SystemGroup.General.UniversityManagement.Common
 {
@@ -10,16 +14,20 @@ namespace SystemGroup.General.UniversityManagement.Common
 
         public override IQueryable Project(IQueryable<Semester> inputs)
         {
-            return from input in inputs
-                   select input;
+            return from semester in inputs
+                   select new
+                   {
+                       semester.ID,
+                       semester.State,
+                       SemesterTime = $"{this.ServerTranslate($"Semester_{semester.Season}")} {semester.Year}"
+                   };
 
         }
         public override void GetColumns(List<ColumnInfo> columns)
         {
             base.GetColumns(columns);
 
-            columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.Year)));
-            columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.Season)));
+            columns.Add(new TextColumnInfo("SemesterTime", "Semester_SemesterTime"));
             columns.Add(new EntityColumnInfo<Semester>(nameof(Semester.State)));
         }
 

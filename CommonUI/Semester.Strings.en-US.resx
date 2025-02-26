@@ -154,7 +154,7 @@
     <value>Educational Season</value>
   </data>
   <data name="Semester" xml:space="preserve">
-    <value>گ</value>
+    <value>Semester</value>
   </data>
   <data name="Spring" xml:space="preserve">
     <value>Spring</value>
@@ -167,5 +167,11 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Educational Year</value>
+  </data>
+  <data name="SemesterTime" xml:space="preserve">
+    <value>Semester</value>
+  </data>
+  <data name="SemesterState" xml:space="preserve">
+    <value>Semester State</value>
   </data>
 </root>

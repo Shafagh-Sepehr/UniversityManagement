@@ -132,11 +132,20 @@
   <data name="EducationalAdministrator" xml:space="preserve">
     <value>Educational Administrator</value>
   </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="GradeState" xml:space="preserve">
+    <value>Grade State</value>
+  </data>
   <data name="Instructor" xml:space="preserve">
     <value>Instructor</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Presentation</value>
   </data>
   <data name="Season" xml:space="preserve">
     <value>Educational Season</value>

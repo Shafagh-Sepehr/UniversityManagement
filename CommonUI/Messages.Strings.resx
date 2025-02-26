@@ -147,6 +147,9 @@
   <data name="EndTimeMustBeGreaterThanStartTime" xml:space="preserve">
     <value>زمان پایان کلاس باید بعد از زمان شروع کلاس باشد</value>
   </data>
+  <data name="EnrollmentPhaseHasNotBegun" xml:space="preserve">
+    <value>ثبت‌نام شروع نشده است</value>
+  </data>
   <data name="InstructorIsNotFree" xml:space="preserve">
     <value>بازه روز {0} ساعت {1} تا {2} کلاس متلاقی با درس {3} ارائه شده توسط همین استاد در ساعت {4} تا {5} است</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="PresentationMustHaveTimeSlots" xml:space="preserve">
     <value>ارائه درس باید حداقل یک بازه زمانی داشته باشد</value>
+  </data>
+  <data name="SelectStudentFirst" xml:space="preserve">
+    <value>اول دانشجو را انتخاب کنید</value>
   </data>
   <data name="SemesterAlreadyExists" xml:space="preserve">
     <value>ترمی با این سال و فصل از قبل تعریف شده است</value>

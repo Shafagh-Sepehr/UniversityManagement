@@ -120,10 +120,19 @@
   <data name="Announce" xml:space="preserve">
     <value>اعلام</value>
   </data>
+  <data name="Announced" xml:space="preserve">
+    <value>اعلام شده</value>
+  </data>
+  <data name="Entered" xml:space="preserve">
+    <value>وارد شده</value>
+  </data>
   <data name="Grade" xml:space="preserve">
     <value>نمره</value>
   </data>
   <data name="GradeState" xml:space="preserve">
     <value>وضعیت نمره</value>
+  </data>
+  <data name="NotEntered" xml:space="preserve">
+    <value>وارد نشده</value>
   </data>
 </root>

@@ -132,4 +132,7 @@
   <data name="Enrollment" xml:space="preserve">
     <value>ثبت نام</value>
   </data>
+  <data name="TakenCredits" xml:space="preserve">
+    <value>واحد های اخذ شده</value>
+  </data>
 </root>

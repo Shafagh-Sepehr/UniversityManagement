@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs"
-Inherits="SystemGroup.General.UniversityManagement.Web.SemesterPages.Edit"
-Title="Semester_Semester" %>
+    Inherits="SystemGroup.General.UniversityManagement.Web.SemesterPages.Edit"
+    Title="Semester_Semester" %>
 
 <!DOCTYPE html>
 
@@ -27,7 +27,7 @@ Title="Semester_Semester" %>
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:SgNumericTextBox runat="server" id="numYear" datatype="System.Int32"
-                                                                 MaxLength="4" MaxValue="9999" MinValue="1350"
+                                                MaxLength="4" MaxValue="9999" MinValue="1350"
                                                 dbvalue='<%# Bind("Year") %>' />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">

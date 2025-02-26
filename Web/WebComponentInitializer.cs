@@ -139,6 +139,31 @@ namespace SystemGroup.General.UniversityManagement.Web
 
         #endregion
 
+        #region Enrollment EntityActions
+
+        [AddNewEntityAction(typeof(Enrollment))]
+        public void NewEnrollmentAction()
+        {
+            SgShell.Show<EnrollmentPages.Edit>();
+        }
+
+        [ViewDetailEntityAction(typeof(Enrollment))]
+        public void EditEnrollment(long[] ids)
+        {
+            foreach (var id in ids)
+            {
+                SgShell.Show<EnrollmentPages.Edit>($"id={id}");
+            }
+        }
+
+        [DeleteEntityAction(typeof(Enrollment))]
+        public void DeleteEnrollment(long[] ids)
+        {
+            ServiceFactory.Create<IEnrollmentBusiness>().Delete(ids);
+        }
+
+        #endregion
+
         #region Methods
 
         public override List<ComponentLink> RegisterLinks()
@@ -153,13 +178,16 @@ namespace SystemGroup.General.UniversityManagement.Web
 
                             new ComponentLink("InstructorList", "Links_InstructorList", null ,
                                 "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Instructor"),
-                            new ComponentLink("CourseList", "Links_CourseList", null , "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Course"),
+                            new ComponentLink("CourseList", "Links_CourseList", null , 
+                                "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Course"),
                             new ComponentLink("SemesterList", "Links_SemesterList", null ,
                                 "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Semester"),
                             new ComponentLink("StudentList", "Links_StudentList", null ,
                                 "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Student"),
                             new ComponentLink("PresentationList", "Links_PresentationList", null ,
                                 "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Presentation"),
+                            new ComponentLink("EnrollmentList", "Links_EnrollmentList", null ,
+                                "~/List.aspx?ComponentName=SystemGroup.General.UniversityManagement&EntityName=Enrollment"),
                         }),
 
                         new ComponentLink("NewInstructor", "Links_NewInstructor", null, typeof(InstructorPages.Edit), 0),
@@ -167,6 +195,7 @@ namespace SystemGroup.General.UniversityManagement.Web
                         new ComponentLink("NewSemester", "Links_NewSemester", null, typeof(SemesterPages.Edit), 2),
                         new ComponentLink("NewStudent", "Links_NewStudent", null, typeof(StudentPages.Edit), 3),
                         new ComponentLink("NewPresentation", "Links_NewPresentation", null, typeof(PresentationPages.Edit), 4),
+                        new ComponentLink("NewEnrollment", "Links_NewEnrollment", null, typeof(EnrollmentPages.Edit), 5),
                     })
                 })
             };

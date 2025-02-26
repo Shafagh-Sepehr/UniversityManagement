@@ -132,17 +132,26 @@
   <data name="EducationalAdministrator" xml:space="preserve">
     <value>معاون آموزشی</value>
   </data>
+  <data name="Grade" xml:space="preserve">
+    <value>نمره</value>
+  </data>
+  <data name="GradeState" xml:space="preserve">
+    <value>وضعیت نمره</value>
+  </data>
   <data name="Instructor" xml:space="preserve">
     <value>استاد</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>نام</value>
   </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>ارائه درس</value>
+  </data>
   <data name="Season" xml:space="preserve">
     <value>فصل تحصیلی</value>
   </data>
   <data name="Semester" xml:space="preserve">
-    <value>ترم</value>
+    <value>ترم تحصیلی</value>
   </data>
   <data name="Student" xml:space="preserve">
     <value>دانشجو</value>

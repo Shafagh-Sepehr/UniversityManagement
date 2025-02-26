@@ -53,10 +53,14 @@
     <EmbeddedResource Include="Labels.Strings.en-US.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Labels.Strings.resx" />
+    <EmbeddedResource Include="Labels.Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Links.Strings.en-US.resx" />
     <EmbeddedResource Include="Links.Strings.resx" />
-    <EmbeddedResource Include="Messages.Strings.en-US.resx" />
+    <EmbeddedResource Include="Messages.Strings.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages.Strings.resx" />
     <EmbeddedResource Include="Prerequisite.Strings.en-US.resx" />
     <EmbeddedResource Include="Prerequisite.Strings.resx" />

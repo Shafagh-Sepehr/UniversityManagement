@@ -120,10 +120,19 @@
   <data name="Announce" xml:space="preserve">
     <value>Announce</value>
   </data>
+  <data name="Announced" xml:space="preserve">
+    <value>Announced</value>
+  </data>
+  <data name="Entered" xml:space="preserve">
+    <value>Entered</value>
+  </data>
   <data name="Grade" xml:space="preserve">
     <value>Grade</value>
   </data>
   <data name="GradeState" xml:space="preserve">
     <value>Grade State</value>
+  </data>
+  <data name="NotEntered" xml:space="preserve">
+    <value>Not Entered</value>
   </data>
 </root>

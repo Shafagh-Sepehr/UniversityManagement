@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SystemGroup.Framework.Common;
+using SystemGroup.Framework.Localization;
 using SystemGroup.Framework.Service;
 
 namespace SystemGroup.General.UniversityManagement.Common
@@ -72,9 +73,8 @@ namespace SystemGroup.General.UniversityManagement.Common
                                     {
                                         enrollment.ID,
                                         student.Name,
-                                        semester.Year,
-                                        semester.Season,
                                         semester.State,
+                                        SemesterTime = $"{this.ServerTranslate($"Semester_{semester.Season}")} {semester.Year}",
                                         Credits = credits.TotalCredits
                                     };
 
@@ -98,10 +98,9 @@ namespace SystemGroup.General.UniversityManagement.Common
             base.GetColumns(columns);
 
             columns.Add(new TextColumnInfo("Name", "Student_Name"));
-            columns.Add(new NumericColumnInfo("Year", "Semester_Year", NumericType.Integer));
-            columns.Add(new LookupColumnInfo("Season", "Semester_Season", nameof(SemesterSeason)));
-            columns.Add(new StateColumnInfo("State", "Semester_State", typeof(SemesterState)));
-            columns.Add(new NumericColumnInfo("Credits", "Enrollment_Credits", NumericType.Integer));
+            columns.Add(new TextColumnInfo("SemesterTime", "Semester_SemesterTime"));
+            columns.Add(new StateColumnInfo("State", "Semester_SemesterState", typeof(Semester)));
+            columns.Add(new NumericColumnInfo("Credits", "Enrollment_TakenCredits", NumericType.Integer));
         }
 
         #endregion

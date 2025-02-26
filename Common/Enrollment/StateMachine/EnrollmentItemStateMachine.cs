@@ -7,7 +7,7 @@ namespace SystemGroup.General.UniversityManagement.Common
         protected override void InitializeStates()
         {
             var notEntered = new State(EnrollmentItemGradeState.NotEntered, "NotEntered", "EnrollmentItem_NotEntered");
-            var entered = new State(EnrollmentItemGradeState.Entered, "Entered", "EnrollmentItem_NotEntered");
+            var entered = new State(EnrollmentItemGradeState.Entered, "Entered", "EnrollmentItem_Entered");
             var announced = new State(EnrollmentItemGradeState.Announced, "Announced", "EnrollmentItem_Announced");
 
             States.Add(notEntered);

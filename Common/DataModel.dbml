@@ -27,7 +27,7 @@
       <Column Name="EnrollmentItemID" Member="ID" Modifier="Override" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EnrollmentRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="PresentationRef" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Grade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Grade" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="GradeState" Type="EnrollmentItemGradeState" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
       <Association Name="Enrollment_EnrollmentItem" Member="Enrollment" ThisKey="EnrollmentRef" OtherKey="ID" Type="Enrollment" IsForeignKey="true" />

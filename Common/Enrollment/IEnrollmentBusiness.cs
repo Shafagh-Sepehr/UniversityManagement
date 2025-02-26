@@ -10,5 +10,8 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         [EntityView("AllEnrollments", "Views_AllEnrollments", typeof(EnrollmentProjection), "Year", IsDefaultView = true)]
         new IQueryable<Enrollment> FetchAll();
+
+        [EntityView("FetchAllowedPresentationsForStudentInThisSemester", "_", typeof(PresentationProjection), "CourseTitle")]
+        IQueryable<Presentation> FetchAllowedPresentationsForStudent(long studentRef);
     }
 }

@@ -37,7 +37,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 
             columns.Add(new TextColumnInfo("CourseTitle", "Presentation_CourseTitle"));
             columns.Add(new TextColumnInfo("InstructorName", "Presentation_InstructorName"));
-            columns.Add(new TextColumnInfo("SemesterTime", "Presentation_SemesterTime"));
+            columns.Add(new TextColumnInfo("SemesterTime", "Semester_SemesterTime"));
             columns.Add(new EntityColumnInfo<Presentation>(nameof(Presentation.Capacity)));
         }
 

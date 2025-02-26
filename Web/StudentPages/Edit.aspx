@@ -22,7 +22,7 @@
                                 <sg:SgFieldLayout runat="server">
 
                                     <sg:sgtablerow runat="server">
-                                        <sg:sgtablecell runat="server">
+                                        <sg:sgtablecell runat="server" >
                                             <sg:SgFieldLabel runat="server" TextKey="Labels_Name" Required="True" />
                                         </sg:sgtablecell>
                                         <sg:sgtablecell runat="server">
@@ -48,7 +48,7 @@
 
                                     <sg:SgTableRow runat="server">
                                         <sg:SgTableCell runat="server">
-                                            <sg:SgFieldLabel runat="server" TextKey="Labels_TotalCredits" />
+                                            <sg:SgFieldLabel runat="server" TextKey="Labels_TotalCredits" Width="100px" />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:SgNumericTextBox runat="server" ID="numTotalCredits" Enabled="False" DataType="System.Int32"

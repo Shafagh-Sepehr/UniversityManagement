@@ -8,10 +8,10 @@ namespace SystemGroup.General.UniversityManagement.Common
     [ServiceInterface]
     public interface ISemesterBusiness : IBusinessBase<Semester>
     {
-        [EntityView("AllSemesters", "Views_AllSemesters", typeof(SemesterProjection), nameof(Semester.Year), IsDefaultView = true)]
+        [EntityView("AllSemesters", "Views_AllSemesters", typeof(SemesterProjection), "SemesterTime", IsDefaultView = true)]
         new IQueryable<Semester> FetchAll();
 
-        [EntityView("UnstartedSemesters", "Views_UnstartedSemesters", typeof(SemesterProjection), nameof(Semester.Year))]
+        [EntityView("UnstartedSemesters", "Views_UnstartedSemesters", typeof(SemesterProjection), "SemesterTime")]
         IQueryable<Semester> FetchAllUnstartedSemesters();
     }
 }

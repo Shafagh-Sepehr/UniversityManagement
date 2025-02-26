@@ -82,6 +82,7 @@
     <EmbeddedResource Include="PresentationPages\Edit.aspx" />
     <EmbeddedResource Include="PresentationPages\Edit.js" />
     <EmbeddedResource Include="EnrollmentPages\Edit.aspx" />
+    <EmbeddedResource Include="EnrollmentPages\Edit.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

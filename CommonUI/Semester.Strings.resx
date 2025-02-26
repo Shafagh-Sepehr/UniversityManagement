@@ -168,4 +168,10 @@
   <data name="Year" xml:space="preserve">
     <value>سال تحصیلی</value>
   </data>
+  <data name="SemesterTime" xml:space="preserve">
+    <value>ترم تحصیلی</value>
+  </data>
+  <data name="SemesterState" xml:space="preserve">
+    <value>وضعیت ترم</value>
+  </data>
 </root>

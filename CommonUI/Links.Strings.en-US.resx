@@ -120,6 +120,9 @@
   <data name="CourseList" xml:space="preserve">
     <value>Course List</value>
   </data>
+  <data name="EnrollmentList" xml:space="preserve">
+    <value>Enrollment List</value>
+  </data>
   <data name="InstructorList" xml:space="preserve">
     <value>Instructor List</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="NewCourse" xml:space="preserve">
     <value>New Course</value>
+  </data>
+  <data name="NewEnrollment" xml:space="preserve">
+    <value>New Enrollment</value>
   </data>
   <data name="NewInstructor" xml:space="preserve">
     <value>New Instructor</value>

@@ -636,7 +636,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 		
 		private long _PresentationRef;
 		
-		private int _Grade;
+		private float _Grade;
 		
 		private EnrollmentItemGradeState _GradeState;
 		
@@ -656,7 +656,7 @@ namespace SystemGroup.General.UniversityManagement.Common
     partial void OnEnrollmentRefChanged();
     partial void OnPresentationRefChanging(long value);
     partial void OnPresentationRefChanged();
-    partial void OnGradeChanging(int value);
+    partial void OnGradeChanging(float value);
     partial void OnGradeChanged();
     partial void OnGradeStateChanging(EnrollmentItemGradeState value);
     partial void OnGradeStateChanged();
@@ -739,8 +739,8 @@ namespace SystemGroup.General.UniversityManagement.Common
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grade", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int Grade
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grade", DbType="Float NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public float Grade
 		{
 			get
 			{
