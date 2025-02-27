@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <sg:SgScriptManager runat="server" ID="scriptManager">
             <Scripts>
-                <asp:ScriptReference Path="Edit.js"/>
+                <asp:ScriptReference Path="Edit.js" />
             </Scripts>
         </sg:SgScriptManager>
         <sg:SgUpdatePanel runat="server" ID="updMain">
@@ -79,7 +79,7 @@
                                                 </sg:SgTableCell>
                                                 <sg:SgTableCell runat="server">
                                                     <sg:SgNumericTextBox runat="server" ID="numCapacity" DataType="System.Int32"
-                                                                         MinValue="0" MaxValue="1000"
+                                                        MinValue="0" MaxValue="1000"
                                                         DbValue='<%# Bind("Capacity") %>' />
                                                 </sg:SgTableCell>
                                                 <sg:SgTableCell runat="server">
@@ -104,22 +104,25 @@
                                 <sg:SgLookupGridColumn PropertyName="DayText" headertext="TimeSlot_Day">
                                     <EditItemTemplate>
                                         <sg:SgLookup runat="server" ID="lkpDay" LookupType="TimeSlotDayOfWeek"
-                                                     CbSelectedCode="{binding Day}"
-                                                     OnClientSelectedCodeChanged="lkpDay_clientSelectedCodeChanged" />
+                                            CbSelectedCode="{binding Day}"
+                                            OnClientSelectedCodeChanged="lkpDay_clientSelectedCodeChanged" />
                                         <sg:SgRequiredFieldValidator runat="server" ControlToValidate="lkpDay"
-                                                                     ErrorMessageKey="Messages_DayIsRequired" ValidationGroup="vgGrid"/>
+                                            ErrorMessageKey="Messages_DayIsRequired" ValidationGroup="vgGrid" />
                                     </EditItemTemplate>
                                 </sg:SgLookupGridColumn>
-                                
+
                                 <sg:SgTimePickerGridColumn PropertyName="StartTime" headertext="TimeSlot_StartTime">
                                     <EditItemTemplate>
                                         <sg:SgTimePicker runat="server" ID="tpStartTime" CbSelectedTime="{binding StartTime}" />
                                     </EditItemTemplate>
                                 </sg:SgTimePickerGridColumn>
-                                
+
                                 <sg:SgTimePickerGridColumn PropertyName="EndTime" headertext="TimeSlot_EndTime">
                                     <EditItemTemplate>
                                         <sg:SgTimePicker runat="server" ID="tpEndTime" CbSelectedTime="{binding EndTime}" />
+                                        <%--<sg:SgCompareValidator runat="server" ControlToValidate="tpStartTime"
+                                            ControlToCompare="tpEndTime" Operator="GreaterThan"
+                                            ErrorMessageKey="Messages_EndTimeMustBeGreaterThanStartTime" ValidationGroup="vgGrid" />--%>
                                     </EditItemTemplate>
                                 </sg:SgTimePickerGridColumn>
                             </Columns>

@@ -70,7 +70,9 @@
     <EmbeddedResource Include="Presentation.Strings.resx" />
     <EmbeddedResource Include="Semester.Strings.en-US.resx" />
     <EmbeddedResource Include="Semester.Strings.resx" />
-    <EmbeddedResource Include="Enrollment.Strings.en-US.resx" />
+    <EmbeddedResource Include="Enrollment.Strings.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Enrollment.Strings.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
