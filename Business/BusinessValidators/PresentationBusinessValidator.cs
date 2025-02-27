@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
 using SystemGroup.Framework.Business;
 using SystemGroup.Framework.Common;
-using SystemGroup.Framework.Exceptions;
 using SystemGroup.Framework.Localization;
 using SystemGroup.Framework.Lookup;
 using SystemGroup.Framework.Service;
 using SystemGroup.General.UniversityManagement.Common;
-using ExpressionExtensions = SystemGroup.Framework.LegacyFiltering.ExpressionExtensions;
 
 namespace SystemGroup.General.UniversityManagement.Business
 {
@@ -82,7 +79,7 @@ namespace SystemGroup.General.UniversityManagement.Business
             var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll(loadOptions);
 
             var instructorTimeSlots = presentations
-                .Where(p => p.InstructorRef == record.InstructorRef)
+                .Where(p => p.InstructorRef == record.InstructorRef && record.SemesterRef == p.SemesterRef)
                 .Select(p => p.TimeSlots)
                 .SelectMany(e => e)
                 .Where(t => !record.TimeSlots.Contains(t))
@@ -117,7 +114,7 @@ namespace SystemGroup.General.UniversityManagement.Business
             }   
         }
 
-        private string FixString(int value)
+        private static string FixString(int value)
         {
             if (value == 0)
             {
