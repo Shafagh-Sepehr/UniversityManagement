@@ -82,7 +82,7 @@ namespace SystemGroup.General.UniversityManagement.Business
             var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll(loadOptions);
 
             var instructorTimeSlots = presentations
-                .Where(p => p.InstructorRef == record.InstructorRef)
+                .Where(p => p.InstructorRef == record.InstructorRef && record.SemesterRef == p.SemesterRef)
                 .Select(p => p.TimeSlots)
                 .SelectMany(e => e)
                 .Where(t => !record.TimeSlots.Contains(t))
