@@ -21,8 +21,8 @@ namespace SystemGroup.General.UniversityManagement.Business
                     AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
                     break;
                 case EntityActionType.Update:
-                    AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
                     AssertCourseIsNotPrerequisiteOfAnyOtherCourse(record);
+                    AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
                     break;
                 case EntityActionType.Delete:
                     AssertCourseIsNotPrerequisiteOfAnyOtherCourse(record);
