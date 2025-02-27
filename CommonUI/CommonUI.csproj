@@ -71,7 +71,9 @@
     <EmbeddedResource Include="Semester.Strings.en-US.resx" />
     <EmbeddedResource Include="Semester.Strings.resx" />
     <EmbeddedResource Include="Enrollment.Strings.en-US.resx" />
-    <EmbeddedResource Include="Enrollment.Strings.resx" />
+    <EmbeddedResource Include="Enrollment.Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="EnrollmentItem.Strings.en-US.resx" />
     <EmbeddedResource Include="EnrollmentItem.Strings.resx" />
     <EmbeddedResource Include="Student.Strings.en-US.resx" />
@@ -81,7 +83,9 @@
     <EmbeddedResource Include="TimeSlot.Strings.en-US.resx" />
     <EmbeddedResource Include="TimeSlot.Strings.resx" />
     <EmbeddedResource Include="Views.Strings.en-US.resx" />
-    <EmbeddedResource Include="Views.Strings.resx" />
+    <EmbeddedResource Include="Views.Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

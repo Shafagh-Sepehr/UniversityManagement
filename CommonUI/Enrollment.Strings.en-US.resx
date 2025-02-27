@@ -132,4 +132,7 @@
   <data name="Enrollment" xml:space="preserve">
     <value>Enrollment</value>
   </data>
+  <data name="TakenCredits" xml:space="preserve">
+      <value>Taken Credits</value>
+  </data>
 </root>

@@ -147,6 +147,9 @@
   <data name="EndTimeMustBeGreaterThanStartTime" xml:space="preserve">
     <value>End Time Must Be Greater Than Start Time</value>
   </data>
+  <data name="EnrollmentPhaseHasNotBegun" xml:space="preserve">
+    <value>Enrollment Phase Hasn't Begun</value>
+  </data>
   <data name="InstructorIsNotFree" xml:space="preserve">
     <value>The Time Slot In {0} From {1} To {2} Collides {3} Presented By This Instructor Starting At {4} To {5}</value>
   </data>

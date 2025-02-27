@@ -27,7 +27,7 @@
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">
                                             <sg:SgNumericTextBox runat="server" id="numYear" datatype="System.Int32"
-                                                MaxLength="4" MaxValue="9999" MinValue="1350"
+                                                MaxLength="4" MaxValue="9999" MinValue="1350" NumberFormat-GroupSeparator=""
                                                 dbvalue='<%# Bind("Year") %>' />
                                         </sg:SgTableCell>
                                         <sg:SgTableCell runat="server">

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SystemGroup.Framework.Localization;
 using SystemGroup.Framework.Security;
 using SystemGroup.Framework.Service;
 using SystemGroup.General.UniversityManagement.Common;
@@ -60,6 +61,12 @@ namespace SystemGroup.General.UniversityManagement.Web
         public void DeleteCourse(long[] ids)
         {
             ServiceFactory.Create<ICourseBusiness>().Delete(ids);
+        }
+
+        [CustomEntityAction(typeof(Course), "CustomAction1", CanApplyOnAllRecords = true)]
+        public void CustomAction(long[] ids)
+        {
+            throw this.CreateException("");
         }
 
         #endregion
