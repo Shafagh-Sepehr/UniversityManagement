@@ -9,6 +9,24 @@ namespace SystemGroup.General.UniversityManagement.Business
     [Service]
     public class EnrollmentBusiness : BusinessBase<Enrollment>, IEnrollmentBusiness
     {
+        public virtual IQueryable<Enrollment> FetchEnrollmentsInEnrollmentPhase()
+        {
+            var loadOptions = LoadOptions.With<Enrollment>(e => e.Semester);
+            return FetchAll().Where(e => e.Semester.State == SemesterState.EnrollmentPhase);
+        }
+
+        public virtual IQueryable<Enrollment> FetchActiveEnrollments()
+        {
+            var loadOptions = LoadOptions.With<Enrollment>(e => e.Semester);
+            return FetchAll().Where(e => e.Semester.State == SemesterState.Active);
+        }
+
+        public virtual IQueryable<Enrollment> FetchFinishedEnrollments()
+        {
+            var loadOptions = LoadOptions.With<Enrollment>(e => e.Semester);
+            return FetchAll().Where(e => e.Semester.State == SemesterState.Finished);
+        }
+
         public virtual IQueryable<Presentation> FetchAllowedPresentationsForStudent(long studentRef)
         {
             var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll();
