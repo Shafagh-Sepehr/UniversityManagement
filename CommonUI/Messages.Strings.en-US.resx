@@ -135,6 +135,12 @@
   <data name="CourseCreditsAreRequired" xml:space="preserve">
     <value>Select The Course's Credit Count</value>
   </data>
+  <data name="CourseDeleteConfirmation" xml:space="preserve">
+    <value>Are You Sure About Deleting this Course? All Prerequisite constraints will also be deleted</value>
+  </data>
+  <data name="CourseEditConfirmation" xml:space="preserve">
+    <value>Are You Sure About Changing this Course? this course may have prerequisite relations with other courses</value>
+  </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Changed</value>
   </data>

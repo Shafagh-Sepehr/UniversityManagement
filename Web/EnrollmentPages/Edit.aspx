@@ -34,7 +34,7 @@
                                                     <sg:SgSelector runat="server" ID="sltStudent"
                                                         ComponentName="SystemGroup.General.UniversityManagement"
                                                         OnClientSelectedIndexChanged="sltStudent_selectedIndexChanged"
-                                                        EntityName="Student" ViewName="AllStudents" DbSelectedID='<%# Bind("StudentRef") %>' />
+                                                        EntityName="Student" ViewName="NotEnrolledStudents" DbSelectedID='<%# Bind("StudentRef") %>' />
                                                 </sg:SgTableCell>
                                                 <sg:SgTableCell runat="server">
                                                     <sg:SgRequiredFieldValidator runat="server"
@@ -77,7 +77,7 @@
                                     <EditItemTemplate>
                                         <sg:SgSelector ID="sltPresentation" runat="server"
                                             ComponentName="SystemGroup.General.UniversityManagement"
-                                            EntityName="Presentation" ViewName="FetchAllowedPresentationsForStudentInThisSemester"
+                                            EntityName="Presentation" ViewName="AllowedPresentationsForStudentInThisSemester"
                                             OnClientSelectedIndexChanged="sltPresentation_selectedIndexChanged"
                                             OnClientItemsRequesting="sltPresentation_itemsRequesting"
                                             OnItemsRequested="sltPresentation_ItemsRequested"

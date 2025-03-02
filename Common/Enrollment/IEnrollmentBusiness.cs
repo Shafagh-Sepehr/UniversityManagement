@@ -20,7 +20,7 @@ namespace SystemGroup.General.UniversityManagement.Common
         [EntityView("FinishedEnrollments", "Views_FinishedEnrollments", typeof(EnrollmentProjection), "Year")]
         IQueryable<Enrollment> FetchFinishedEnrollments();
 
-        [EntityView("FetchAllowedPresentationsForStudentInThisSemester", "_", typeof(PresentationProjection), "CourseTitle")]
+        [EntityView("AllowedPresentationsForStudentInThisSemester", "_", typeof(PresentationProjection), "CourseTitle")]
         IQueryable<Presentation> FetchAllowedPresentationsForStudent(long studentRef);
     }
 }

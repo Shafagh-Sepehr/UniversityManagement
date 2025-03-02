@@ -21,11 +21,9 @@ namespace SystemGroup.General.UniversityManagement.Business
                     AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
                     break;
                 case EntityActionType.Update:
-                    AssertCourseIsNotPrerequisiteOfAnyOtherCourse(record);
                     AssertRecursivePrerequisitationDoesNotExistWithoutDbCall(record);
                     break;
                 case EntityActionType.Delete:
-                    AssertCourseIsNotPrerequisiteOfAnyOtherCourse(record);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);

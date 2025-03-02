@@ -1,6 +1,10 @@
 ﻿var grid;
 function pageLoad() {
     grid = window.$find("formView_grdEnrollmentItems");
+    var list = grid.get_dataSourceObject().get_entityList();
+    if (list.length > 0) {
+        $find("formView_sltStudent").disable();
+    }
 }
 
 function sltPresentation_selectedIndexChanged(sender, args) {

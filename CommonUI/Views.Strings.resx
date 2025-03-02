@@ -147,4 +147,7 @@
   <data name="FinishedEnrollments" xml:space="preserve">
     <value>ثبت‌نام های ترم های پایان یافته</value>
   </data>
+  <data name="NotEnrolledStudents" xml:space="preserve">
+    <value>دانشجویان ثبت‌نام نکرده</value>
+  </data>
 </root>

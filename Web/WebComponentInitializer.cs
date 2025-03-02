@@ -48,7 +48,7 @@ namespace SystemGroup.General.UniversityManagement.Web
             SgShell.Show<CoursePages.Edit>();
         }
 
-        [ViewDetailEntityAction(typeof(Course))]
+        [ViewDetailEntityAction(typeof(Course), NeedsConfirmation = true, ConfirmationMessage = "Messages_CourseEditConfirmation")]
         public void EditCourse(long[] ids)
         {
             foreach (var id in ids)
@@ -57,7 +57,7 @@ namespace SystemGroup.General.UniversityManagement.Web
             }
         }
 
-        [DeleteEntityAction(typeof(Course))]
+        [DeleteEntityAction(typeof(Course), NeedsConfirmation = true, ConfirmationMessage = "Messages_CourseDeleteConfirmation")]
         public void DeleteCourse(long[] ids)
         {
             ServiceFactory.Create<ICourseBusiness>().Delete(ids);

@@ -10,5 +10,8 @@ namespace SystemGroup.General.UniversityManagement.Common
     {
         [EntityView("AllStudents", "Views_AllStudents", typeof(StudentProjection), nameof(Student.Name), IsDefaultView = true)]
         new IQueryable<Student> FetchAll();
+
+        [EntityView("NotEnrolledStudents", "Views_NotEnrolledStudents", typeof(StudentProjection), "CourseTitle")]
+        IQueryable<Student> FetchNotEnrolledStudents();
     }
 }
