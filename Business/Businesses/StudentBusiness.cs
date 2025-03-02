@@ -16,7 +16,7 @@ namespace SystemGroup.General.UniversityManagement.Business
                 .Single(s => s.State == SemesterState.EnrollmentPhase);
 
             var loadOptions = LoadOptions.With<Student>(s => s.Enrollments);
-            return FetchAll(loadOptions).Where(s => !s.Enrollments.Select(e => e.ID).Contains(enrollmentPhaseSemester.ID));
+            return FetchAll(loadOptions).Where(s => !s.Enrollments.Select(e => e.SemesterRef).Contains(enrollmentPhaseSemester.ID));
         }
     }
 }
