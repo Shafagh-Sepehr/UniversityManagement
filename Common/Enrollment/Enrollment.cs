@@ -12,7 +12,7 @@ namespace SystemGroup.General.UniversityManagement.Common
 {
     [Serializable]
     [Master(typeof(IEnrollmentBusiness))]
-    [SearchFields("Year")] //TODO check if this works
+    [SearchFields]
     partial class Enrollment : Entity
     {
 

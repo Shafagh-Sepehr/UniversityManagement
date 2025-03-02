@@ -141,6 +141,9 @@
   <data name="CourseEditConfirmation" xml:space="preserve">
     <value>آیا مطمئنید که میخواهید این درس را تغییر دهید؟ این درس ممکن است با درس های دیگر رابطه پیشنیازی داشته باشد</value>
   </data>
+  <data name="CourseIsAlreadyPassed" xml:space="preserve">
+    <value>درس {0} قبلا گذرانده شده است</value>
+  </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>این درس پیش‌نیاز درس دیگری است و نمیتواند تغییر کند</value>
   </data>
@@ -156,8 +159,8 @@
   <data name="EnrollmentPhaseHasNotBegun" xml:space="preserve">
     <value>ثبت‌نام شروع نشده است</value>
   </data>
-  <data name="InstructorIsNotFree" xml:space="preserve">
-    <value>بازه روز {0} ساعت {1} تا {2} کلاس متلاقی با درس {3} ارائه شده توسط همین استاد در ساعت {4} تا {5} است</value>
+  <data name="TimeSlotsCollide" xml:space="preserve">
+    <value>بازه روز {0} درس {6} ساعت {1} تا {2} کلاس متلاقی با درس {3} در ساعت {4} تا {5} است</value>
   </data>
   <data name="InstructorIsRequired" xml:space="preserve">
     <value>استاد را انتخاب کنید</value>

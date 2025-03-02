@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Businesses\CourseBusiness.cs" />
     <Compile Include="Businesses\EnrollmentBusiness.cs" />
+    <Compile Include="BusinessValidators\EnrollmentBusinessValidator.cs" />
     <Compile Include="BusinessValidators\CourseBusinessValidator.cs" />
     <Compile Include="Businesses\InstructorBusiness.cs" />
     <Compile Include="Businesses\PresentationBusiness.cs" />

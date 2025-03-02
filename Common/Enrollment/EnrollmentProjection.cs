@@ -19,41 +19,6 @@ namespace SystemGroup.General.UniversityManagement.Common
             var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll();
             var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll();
 
-            /*var semesterCredits = from enrollment in inputs
-                                  join enrollmentItem in enrollmentItems on enrollment.ID equals enrollmentItem.EnrollmentRef
-                                  join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
-                                  join course in courses on presentation.CourseRef equals course.ID
-                                  group course by enrollment.ID into enrollmentGroup
-                                  select new
-                                  {
-                                      EnrollmentID = enrollmentGroup.Key,
-                                      TotalCredits = enrollmentGroup.Sum(c => c.Credits)
-                                  };
-
-            var enrollmentDetailsBig = from enrollment in inputs
-                                    join semester in semesters on enrollment.SemesterRef equals semester.ID
-                                    join student in students on enrollment.StudentRef equals student.ID
-                                    join enrollmentItem in enrollmentItems on enrollment.ID equals enrollmentItem.EnrollmentRef
-                                    join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
-                                    join course in courses on presentation.CourseRef equals course.ID
-                                    group course by new
-                                    {
-                                        enrollment.ID,
-                                        student.Name,
-                                        semester.Year,
-                                        semester.Season,
-                                        semester.State
-                                    } into enrollmentGroup
-                                    select new
-                                    {
-                                        enrollmentGroup.Key.ID,
-                                        enrollmentGroup.Key.Name,
-                                        enrollmentGroup.Key.Year,
-                                        enrollmentGroup.Key.Season,
-                                        enrollmentGroup.Key.State,
-                                        Credits = enrollmentGroup.Sum(c => c.Credits)
-                                    };*/
-
             var enrollmentCredits = from enrollment in inputs
                                     join enrollmentItem in enrollmentItems on enrollment.ID equals enrollmentItem.EnrollmentRef
                                     join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
@@ -69,6 +34,8 @@ namespace SystemGroup.General.UniversityManagement.Common
                                     join semester in semesters on enrollment.SemesterRef equals semester.ID
                                     join student in students on enrollment.StudentRef equals student.ID
                                     join credits in enrollmentCredits on enrollment.ID equals credits.EnrollmentID
+                                    into CreditGroup
+                                    from credits in CreditGroup.DefaultIfEmpty()
                                     select new
                                     {
                                         enrollment.ID,
@@ -76,23 +43,10 @@ namespace SystemGroup.General.UniversityManagement.Common
                                         semester.Year,
                                         semester.Season,
                                         semester.State,
-                                        Credits = credits.TotalCredits
+                                        Credits = (credits != null) ? credits.TotalCredits : 0
                                     };
 
             return enrollmentDetails;
-
-            /*return from enrollment in inputs
-                   join semester in semesters on enrollment.SemesterRef equals semester.ID
-                   join student in students on enrollment.StudentRef equals student.ID
-                   select new
-                   {
-                       enrollment.ID,
-                       student.Name,
-                       semester.Year,
-                       semester.Season,
-                       semester.State,
-                       Credits = 0,
-                   };*/
         }
         public override void GetColumns(List<ColumnInfo> columns)
         {

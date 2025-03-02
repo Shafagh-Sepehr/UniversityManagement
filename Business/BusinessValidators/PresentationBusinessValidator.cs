@@ -67,7 +67,7 @@ namespace SystemGroup.General.UniversityManagement.Business
 
         private void AssertTimeSlotsDoNotCollide(Presentation record)
         {
-            if (TimeSlotsCollideWithEachOther(record.TimeSlots, record.TimeSlots))
+            if (PresentationBusiness.TimeSlotsCollideWithEachOther(record.TimeSlots, record.TimeSlots))
             {
                 throw this.CreateException("Messages_TimeSlotsShouldNotCollide");
             }
@@ -85,89 +85,11 @@ namespace SystemGroup.General.UniversityManagement.Business
                 .Where(t => !record.TimeSlots.Contains(t))
                 .ToEntitySet();
 
-            if (TimeSlotsCollideWithEachOther2(instructorTimeSlots, record.TimeSlots, out var otherCollidingTimeSlot, out var thisCollidingTimeSlot))
+            if (PresentationBusiness.TimeSlotsCollideWithEachOther(instructorTimeSlots, record.TimeSlots, out var otherCollidingTimeSlot, out var thisCollidingTimeSlot))
             {
-                var otherStartHour = FixString(otherCollidingTimeSlot.StartTime / 60);
-                var otherStartMinute = FixString(otherCollidingTimeSlot.StartTime % 60);
-                var otherEndHour = FixString(otherCollidingTimeSlot.EndTime / 60);
-                var otherEndMinute = FixString(otherCollidingTimeSlot.EndTime % 60);
-
-                var thisStartHour = FixString(thisCollidingTimeSlot.StartTime / 60);
-                var thisStartMinute = FixString(thisCollidingTimeSlot.StartTime % 60);
-                var thisEndHour = FixString(thisCollidingTimeSlot.EndTime / 60);
-                var thisEndMinute = FixString(thisCollidingTimeSlot.EndTime % 60);
-
-                var otherLoadOptions = LoadOptions.With<Presentation>(p => p.Course);
-                var presentation = ServiceFactory.Create<IPresentationBusiness>()
-                    .FetchByID(otherCollidingTimeSlot.PresentationRef,otherLoadOptions)
-                    .Single();
-
-                throw this.CreateException(
-                    "Messages_InstructorIsNotFree",
-                    $"{LookupService.Lookup(otherCollidingTimeSlot.Day).Value}",
-                    $"{thisStartHour}:{thisStartMinute}",
-                    $"{thisEndHour}:{thisEndMinute}",
-                    $"{presentation.Course.Title}",
-                    $"{otherStartHour}:{otherStartMinute}",
-                    $"{otherEndHour}:{otherEndMinute}"
-                    );
+                var (errorMessageKey, parameters) = PresentationBusiness.CreateTimeSlotCollisionExceptionDetail(thisCollidingTimeSlot, otherCollidingTimeSlot);
+                throw this.CreateException(errorMessageKey, parameters);
             }   
-        }
-
-        private static string FixString(int value)
-        {
-            if (value == 0)
-            {
-                return "00";
-            }
-            else if (value / 10 == 0)
-            {
-                return $"0{value}";
-            }
-            else
-            {
-                return value.ToString();
-            }
-        }
-
-        private static bool TimeSlotsCollideWithEachOther2(EntitySet<TimeSlot> timeSlots, EntitySet<TimeSlot> otherTimeSlots, out TimeSlot firstCollidingTimeSlot, out TimeSlot secondCollidingTimeSlot)
-        {
-            foreach (var timeSlot in timeSlots)
-            {
-                foreach (var otherTimeSlot in otherTimeSlots)
-                {
-                    if (DoesTimeSlotsCollide(timeSlot, otherTimeSlot))
-                    {
-                        firstCollidingTimeSlot = timeSlot;
-                        secondCollidingTimeSlot = otherTimeSlot;
-                        return true;
-                    }
-                }
-            }
-
-            firstCollidingTimeSlot = null;
-            secondCollidingTimeSlot = null;
-            return false;
-        }
-
-        private static bool TimeSlotsCollideWithEachOther(EntitySet<TimeSlot> timeSlots, EntitySet<TimeSlot> otherTimeSlots)
-        {
-            return timeSlots.Any(timeSlot => TimeSlotHasCollision(timeSlot, otherTimeSlots));
-        }
-
-        private static bool TimeSlotHasCollision(TimeSlot timeSlot, EntitySet<TimeSlot> timeSlots)
-        {
-            return timeSlots
-                    .Where(other => timeSlot != other)
-                    .Any(other => DoesTimeSlotsCollide(timeSlot, other));
-        }
-
-        private static bool DoesTimeSlotsCollide(TimeSlot timeSlot, TimeSlot otherTimeSlot)
-        {
-            var isSameDay = timeSlot.Day == otherTimeSlot.Day;
-
-            var doesNotCollide = timeSlot.EndTime <= otherTimeSlot.StartTime || otherTimeSlot.EndTime <= timeSlot.StartTime;
-            return isSameDay && !doesNotCollide;
         }
     }
 }

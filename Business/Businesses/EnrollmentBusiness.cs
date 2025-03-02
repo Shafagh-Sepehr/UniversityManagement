@@ -1,5 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SystemGroup.Framework.Business;
+using SystemGroup.Framework.Common;
+using SystemGroup.Framework.Eventing;
+using SystemGroup.Framework.Host;
 using SystemGroup.Framework.Service;
 using SystemGroup.General.UniversityManagement.Common;
 
@@ -30,22 +34,10 @@ namespace SystemGroup.General.UniversityManagement.Business
         public virtual IQueryable<Presentation> FetchAllowedPresentationsForStudent(long studentRef)
         {
             var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll();
-            var enrollmentItems = ServiceFactory.Create<IEnrollmentBusiness>().FetchDetail<EnrollmentItem>();
-            var enrollments = ServiceFactory.Create<IEnrollmentBusiness>().FetchAll();
             var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll();
             var semesters = ServiceFactory.Create<ISemesterBusiness>().FetchAll();
 
-
-
-            var passedCourses =
-                  from course in courses
-                  join presentation in presentations on course.ID equals presentation.CourseRef
-                  join enrollmentItem in enrollmentItems on presentation.ID equals enrollmentItem.PresentationRef
-                  join enrollment in enrollments on enrollmentItem.EnrollmentRef equals enrollment.ID
-                  where enrollment.StudentRef == studentRef &&
-                        enrollmentItem.Grade >= 10 &&
-                        enrollmentItem.GradeState == EnrollmentItemGradeState.Announced
-                  select course;
+            var passedCourses = CourseBusiness.GetStudentPassedCourses(studentRef);
 
             var allowedPresentations = from course in courses.Except(passedCourses)
                                        join presentation in presentations on course.ID equals presentation.CourseRef
@@ -53,6 +45,12 @@ namespace SystemGroup.General.UniversityManagement.Business
                                        select presentation;
 
             return allowedPresentations;
+        }
+
+        [SubscribeTo(typeof(IHostService), nameof(IHostService.HostStarted))]
+        private void OnHostStarted(object s, EventArgs e)
+        {
+            BusinessValidationProvider.RegisterValidator(new EnrollmentBusinessValidator());
         }
     }
 }

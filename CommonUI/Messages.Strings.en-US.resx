@@ -141,6 +141,9 @@
   <data name="CourseEditConfirmation" xml:space="preserve">
     <value>Are You Sure About Changing this Course? this course may have prerequisite relations with other courses</value>
   </data>
+  <data name="CourseIsAlreadyPassed" xml:space="preserve">
+    <value>You Have Already Passed Course {0}</value>
+  </data>
   <data name="CourseIsPrerequisiteOfOtherCoursesThereforeCantBeChanged" xml:space="preserve">
     <value>Course Is Prerequisite Of Other Courses Therefore Cant Be Changed</value>
   </data>
@@ -156,8 +159,8 @@
   <data name="EnrollmentPhaseHasNotBegun" xml:space="preserve">
     <value>Enrollment Phase Hasn't Begun</value>
   </data>
-  <data name="InstructorIsNotFree" xml:space="preserve">
-    <value>The Time Slot In {0} From {1} To {2} Collides {3} Presented By This Instructor Starting At {4} To {5}</value>
+  <data name="TimeSlotsCollide" xml:space="preserve">
+    <value>The Time Slot of {6} On {0}  From {1} To {2} Collides {3} Starting At {4} To {5}</value>
   </data>
   <data name="InstructorIsRequired" xml:space="preserve">
     <value>Select The Instructor</value>
