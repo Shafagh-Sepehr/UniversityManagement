@@ -132,6 +132,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit Presentation</value>
   </data>
+  <data name="EnrolledCount" xml:space="preserve">
+    <value>Enrolled Count</value>
+  </data>
   <data name="InstructorName" xml:space="preserve">
     <value>Instructor Name</value>
   </data>

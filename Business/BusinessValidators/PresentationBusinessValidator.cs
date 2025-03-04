@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Linq;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using SystemGroup.Framework.Business;
 using SystemGroup.Framework.Common;
 using SystemGroup.Framework.Localization;
@@ -19,16 +20,17 @@ namespace SystemGroup.General.UniversityManagement.Business
             switch (action)
             {
                 case EntityActionType.Insert:
-                    AssertIfPresentationHasNoTimeSlot(record);
+                    AssertPresentationHasTimeSlots(record);
                     AssertEndTimeIsAfterStartTime(record);
                     AssertTimeSlotsDoNotCollide(record);
                     AssertThatInstructorIsFreeInTimeSlots(record);
                     break;
                 case EntityActionType.Update:
-                    AssertIfPresentationHasNoTimeSlot(record);
+                    AssertPresentationHasTimeSlots(record);
                     AssertEndTimeIsAfterStartTime(record);
                     AssertTimeSlotsDoNotCollide(record);
                     AssertThatInstructorIsFreeInTimeSlots(record);
+                    DeleteEnrollmentItemsIfTimeHasChanged(record);
                     break;
                 case EntityActionType.Delete:
                     AssertNoReferenceExists(record);
@@ -38,7 +40,45 @@ namespace SystemGroup.General.UniversityManagement.Business
             }
         }
 
-        private void AssertIfPresentationHasNoTimeSlot(Presentation record)
+        private static void DeleteEnrollmentItemsIfTimeHasChanged(Presentation record)
+        {
+            var presentationLoadOptions = LoadOptions.With<Presentation>(p => p.TimeSlots);
+            var oldPresentation = ServiceFactory.Create<IPresentationBusiness>().FetchByID(record.ID, presentationLoadOptions).Single();
+
+            if (oldPresentation.TimeSlots.Count == record.TimeSlots.Count)
+            {
+                var shouldReturn = true;
+                for (var i = 0; i < record.TimeSlots.Count; i++)
+                {
+                    if (record.TimeSlots[i].StartTime != oldPresentation.TimeSlots[i].StartTime ||
+                        record.TimeSlots[i].EndTime != oldPresentation.TimeSlots[i].EndTime)
+                    {
+                        shouldReturn = false;
+                        break;
+                    }
+                }
+
+                if (shouldReturn)
+                {
+                    return;
+                }
+            }
+
+            var enrollmentBusiness = ServiceFactory.Create<IEnrollmentBusiness>();
+            var enrollmentLoadOptions = LoadOptions.With<Enrollment>(e => e.EnrollmentItems);
+            var enrollments = enrollmentBusiness.FetchAll(enrollmentLoadOptions).ToList();
+
+
+            for (var i = 0; i < enrollments.Count(); i++)
+            {
+                enrollments[i].EnrollmentItems = enrollments[i].EnrollmentItems
+                   .Except(enrollments[i].EnrollmentItems.Where(e => e.PresentationRef == record.ID))
+                   .ToEntitySet();
+            }
+            enrollmentBusiness.Save(ref enrollments);
+        }
+
+        private void AssertPresentationHasTimeSlots(Presentation record)
         {
             if (record.TimeSlots.Count == 0)
             {

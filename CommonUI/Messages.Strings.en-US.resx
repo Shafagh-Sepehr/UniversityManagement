@@ -207,4 +207,10 @@
   <data name="YearIsRequired" xml:space="preserve">
     <value>Year Is Required</value>
   </data>
+  <data name="PresentationEditConfirmation" xml:space="preserve">
+    <value>If you have changed the presentation time, this presentation will be removed from all students' registrations. Do you want to proceed?</value>
+  </data>
+  <data name="PresentationDeleteConfirmation" xml:space="preserve">
+    <value>This presentation will be removed from all student's enrollments, do you want to proceed?</value>
+  </data>
 </root>

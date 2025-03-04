@@ -129,7 +129,7 @@ namespace SystemGroup.General.UniversityManagement.Web
             SgShell.Show<PresentationPages.Edit>();
         }
 
-        [ViewDetailEntityAction(typeof(Presentation))]
+        [ViewDetailEntityAction(typeof(Presentation), NeedsConfirmation = true, ConfirmationMessage = "Messages_PresentationEditConfirmation")]
         public void EditPresentation(long[] ids)
         {
             foreach (var id in ids)
@@ -138,7 +138,7 @@ namespace SystemGroup.General.UniversityManagement.Web
             }
         }
 
-        [DeleteEntityAction(typeof(Presentation))]
+        [DeleteEntityAction(typeof(Presentation), NeedsConfirmation = true, ConfirmationMessage = "Messages_PresentationDeleteConfirmation")]
         public void DeletePresentation(long[] ids)
         {
             ServiceFactory.Create<IPresentationBusiness>().Delete(ids);

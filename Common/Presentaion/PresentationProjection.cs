@@ -16,6 +16,7 @@ namespace SystemGroup.General.UniversityManagement.Common
             var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll();
             var instructors = ServiceFactory.Create<IInstructorBusiness>().FetchAll();
             var semesters = ServiceFactory.Create<ISemesterBusiness>().FetchAll();
+            var enrollmentItems = ServiceFactory.Create<IEnrollmentBusiness>().FetchDetail<EnrollmentItem>();
 
             return from presentation in inputs
                    join course in courses on presentation.CourseRef equals course.ID
@@ -25,6 +26,7 @@ namespace SystemGroup.General.UniversityManagement.Common
                    {
                        presentation.ID,
                        presentation.Capacity,
+                       EnrolledCount = enrollmentItems.Count(e => e.PresentationRef == presentation.ID),
                        CourseTitle = course.Title,
                        InstructorName = instructor.Name,
                        SemesterTime = $"{this.ServerTranslate($"Semester_{semester.Season}")} {semester.Year}"
@@ -39,6 +41,7 @@ namespace SystemGroup.General.UniversityManagement.Common
             columns.Add(new TextColumnInfo("InstructorName", "Presentation_InstructorName"));
             columns.Add(new TextColumnInfo("SemesterTime", "Semester_SemesterTime"));
             columns.Add(new EntityColumnInfo<Presentation>(nameof(Presentation.Capacity)));
+            columns.Add(new NumericColumnInfo("EnrolledCount", "Presentation_EnrolledCount", NumericType.Integer));
         }
 
         #endregion

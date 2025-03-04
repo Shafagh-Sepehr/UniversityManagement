@@ -207,4 +207,10 @@
   <data name="YearIsRequired" xml:space="preserve">
     <value>سال تحصیلی را وارد کنید</value>
   </data>
+  <data name="PresentationEditConfirmation" xml:space="preserve">
+    <value>اگر زمان ارائه را تغییر داده باشید، این ارائه از ثبت‌نام همه دانشجوها حذف میشود، آیا میخواهید ادامه دهید؟</value>
+  </data>
+  <data name="PresentationDeleteConfirmation" xml:space="preserve">
+    <value>این ارائه درس از ثبت‌نام تمام دانشجویان حذف خواهد شد، آیا میخواهید ادامه دهید؟</value>
+  </data>
 </root>
