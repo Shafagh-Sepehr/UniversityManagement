@@ -23,11 +23,48 @@ namespace SystemGroup.General.UniversityManagement.Business
                 case EntityActionType.Update:
                     AssertTakenPresentationIsNotAlreadyPassed(record);
                     AssertStudentEnrollmentItemsDoesNotCollide(record);
+                    AssertCapacityIsNotFull(record);
                     break;
                 case EntityActionType.Delete:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);
+            }
+        }
+
+        private void AssertCapacityIsNotFull(Enrollment record)
+        {
+            var oldEnrollmentIDs = ServiceFactory.Create<IEnrollmentBusiness>()
+                .FetchDetail<EnrollmentItem>()
+                .Where(ei => ei.EnrollmentRef == record.ID)
+                .Select(ei => ei.ID)
+                .ToList();
+
+            var newEnrollmentItems = record.EnrollmentItems.Where(ei => !oldEnrollmentIDs.Contains(ei.ID));
+
+            var loadOptions = LoadOptions
+                .With<Presentation>(p => p.EnrollmentItems)
+                .With<Presentation>(p => p.Course);
+
+            var allPresentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll(loadOptions);
+            var newPresentations = allPresentations
+                .Where(p => newEnrollmentItems.Select(ei => ei.PresentationRef).Contains(p.ID))
+                .Select(p => new
+                {
+                    p.ID,
+                    p.Capacity,
+                    EnrolledCount = p.EnrollmentItems.Count,
+                    CourseTitle = p.Course.Title
+                })
+                .ToDictionary(p => p.ID, p => new { p.Capacity, p.EnrolledCount, p.CourseTitle });
+
+            foreach (var newEnrollmentItem in newEnrollmentItems)
+            {
+                var p = newPresentations[newEnrollmentItem.PresentationRef];
+                if (p.EnrolledCount >= p.Capacity)
+                {
+                    throw this.CreateException("Messages_PresentationCapacityIsFull", p.CourseTitle);
+                }
             }
         }
 

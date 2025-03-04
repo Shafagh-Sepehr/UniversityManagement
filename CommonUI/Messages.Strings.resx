@@ -213,4 +213,7 @@
   <data name="PresentationDeleteConfirmation" xml:space="preserve">
     <value>این ارائه درس از ثبت‌نام تمام دانشجویان حذف خواهد شد، آیا میخواهید ادامه دهید؟</value>
   </data>
+  <data name="PresentationCapacityIsFull" xml:space="preserve">
+    <value>ظرفیت درس {0} تکمیل شده است</value>
+  </data>
 </root>

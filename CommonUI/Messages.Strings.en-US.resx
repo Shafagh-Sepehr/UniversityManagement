@@ -213,4 +213,7 @@
   <data name="PresentationDeleteConfirmation" xml:space="preserve">
     <value>This presentation will be removed from all student's enrollments, do you want to proceed?</value>
   </data>
+  <data name="PresentationCapacityIsFull" xml:space="preserve">
+    <value>Capacity of Course {0} is Full</value>
+  </data>
 </root>
