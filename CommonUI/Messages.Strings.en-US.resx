@@ -216,4 +216,7 @@
   <data name="PresentationCapacityIsFull" xml:space="preserve">
     <value>Capacity of Course {0} is Full</value>
   </data>
+  <data name="TooMuchCredits" xml:space="preserve">
+    <value>Max Take-able Credit Count Is {0} but {1} Credits have been taken</value>
+  </data>
 </root>

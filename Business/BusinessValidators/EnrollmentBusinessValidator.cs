@@ -24,11 +24,30 @@ namespace SystemGroup.General.UniversityManagement.Business
                     AssertTakenPresentationIsNotAlreadyPassed(record);
                     AssertStudentEnrollmentItemsDoesNotCollide(record);
                     AssertCapacityIsNotFull(record);
+                    AssertEnrollmentCreditsIsValid(record);
                     break;
                 case EntityActionType.Delete:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);
+            }
+        }
+
+        private void AssertEnrollmentCreditsIsValid(Enrollment record)
+        {
+            var maxCreditsAllowed = ServiceFactory.Create<IStudentBusiness>().FetchByID(record.StudentRef).Single().MaxCreditsAllowed();
+
+            var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll();
+            var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll();
+
+            var credits = (from enrollmentItem in record.EnrollmentItems
+                           join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
+                           join course in courses on presentation.CourseRef equals course.ID
+                           select (int)course.Credits).Sum();
+
+            if (credits > maxCreditsAllowed)
+            {
+                throw this.CreateException("Messages_TooMuchCredits", maxCreditsAllowed, credits);
             }
         }
 

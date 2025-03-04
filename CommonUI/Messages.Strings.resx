@@ -216,4 +216,7 @@
   <data name="PresentationCapacityIsFull" xml:space="preserve">
     <value>ظرفیت درس {0} تکمیل شده است</value>
   </data>
+  <data name="TooMuchCredits" xml:space="preserve">
+    <value>حداکثر تعداد واحد قابل اخذ برابر با {0} است اما {1} واحد اخذ شده</value>
+  </data>
 </root>
