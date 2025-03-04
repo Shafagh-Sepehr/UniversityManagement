@@ -25,11 +25,45 @@ namespace SystemGroup.General.UniversityManagement.Business
                     AssertStudentEnrollmentItemsDoesNotCollide(record);
                     AssertCapacityIsNotFull(record);
                     AssertEnrollmentCreditsIsValid(record);
+                    AssertPrerequisiteHasBeenPassed(record);
                     break;
                 case EntityActionType.Delete:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);
+            }
+        }
+
+        private void AssertPrerequisiteHasBeenPassed(Enrollment record)
+        {
+            var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll();
+
+            var courseLoadOptions = LoadOptions.With<Course>(c => c.Prerequisites).With<Prerequisite>(p => p.PrerequisiteCourse);
+            var courses = ServiceFactory.Create<ICourseBusiness>().FetchAll(courseLoadOptions);
+
+            var passedCoursesIDs = CourseBusiness.GetStudentPassedCourses(record.StudentRef).Select(c => c.ID);
+
+            var pairs = from presentation in presentations
+                                  where record.EnrollmentItems.Select(ei => ei.PresentationRef).Contains(presentation.ID)
+                                  join course in courses on presentation.CourseRef equals course.ID
+                                  from prerequisite in course.Prerequisites
+                                  select new
+                                  {
+                                      CourseTitle = course.Title,
+                                      PrerequisiteID = prerequisite.ID,
+                                      PrerequisiteTitle = prerequisite.PrerequisiteCourse.Title
+                                  };
+
+            var nonPassedCourses = pairs.Where(pair => !passedCoursesIDs.Contains(pair.PrerequisiteID));
+            if (nonPassedCourses.Any())
+            {
+                var stringBuilder = new StringBuilder();
+                foreach (var nonPassedCourse in nonPassedCourses)
+                {
+                    stringBuilder.Append($"\n{nonPassedCourse.PrerequisiteTitle} => {nonPassedCourse.CourseTitle}");
+                }
+                stringBuilder.Append("\n");
+                throw this.CreateException("Messages_PrerequisiteShouldBePassed", stringBuilder);
             }
         }
 
@@ -93,17 +127,16 @@ namespace SystemGroup.General.UniversityManagement.Business
             var presentations = ServiceFactory.Create<IPresentationBusiness>().FetchAll(loadOptions);
 
             var timeSlots = (from enrollmentItem in record.EnrollmentItems
-                            join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
-                            select presentation.TimeSlots into timeSlotEntitySets
-                            from timeSlot in timeSlotEntitySets
-                            select timeSlot).ToEntitySet();
+                             join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
+                             select presentation.TimeSlots into timeSlotEntitySets
+                             from timeSlot in timeSlotEntitySets
+                             select timeSlot).ToEntitySet();
 
             if (PresentationBusiness.TimeSlotsCollideWithEachOther(timeSlots, timeSlots, out var otherCollidingTimeSlot, out var thisCollidingTimeSlot))
             {
                 var (errorMessageKey, parameters) = PresentationBusiness.CreateTimeSlotCollisionExceptionDetail(thisCollidingTimeSlot, otherCollidingTimeSlot);
                 throw this.CreateException(errorMessageKey, parameters);
             }
-        
         }
 
         private void AssertTakenPresentationIsNotAlreadyPassed(Enrollment record)
@@ -115,15 +148,15 @@ namespace SystemGroup.General.UniversityManagement.Business
             var passedCoursesIDs = CourseBusiness.GetStudentPassedCourses(record.SemesterRef).Select(c => c.ID);
 
             var pairs = from enrollmentItem in record.EnrollmentItems
-            join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
-            select new
-            {
-                enrollmentItem,
-                presentation
-            };
+                        join presentation in presentations on enrollmentItem.PresentationRef equals presentation.ID
+                        select new
+                        {
+                            enrollmentItem,
+                            presentation
+                        };
 
             var passedCourse = pairs.FirstOrDefault(p => passedCoursesIDs.Contains(p.presentation.CourseRef));
-            if(passedCourse != null)
+            if (passedCourse != null)
             {
                 throw this.CreateException("Messages_CourseIsAlreadyPassed", passedCourse.presentation.Course.Title);
             }

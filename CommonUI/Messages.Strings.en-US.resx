@@ -219,4 +219,7 @@
   <data name="TooMuchCredits" xml:space="preserve">
     <value>Max Take-able Credit Count Is {0} but {1} Credits have been taken</value>
   </data>
+  <data name="PrerequisiteShouldBePassed" xml:space="preserve">
+    <value>these prerequisitions haven't been fulfilled: {0}</value>
+  </data>
 </root>

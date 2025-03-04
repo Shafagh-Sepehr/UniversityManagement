@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using SystemGroup.Framework.Business;
 using SystemGroup.Framework.Common;
 using SystemGroup.Framework.Localization;
+using SystemGroup.Framework.Service;
 using SystemGroup.General.UniversityManagement.Common;
 using SystemGroup.Web.UI;
 using SystemGroup.Web.UI.Controls;
@@ -78,8 +79,21 @@ namespace SystemGroup.General.UniversityManagement.Web.EnrollmentPages
                 .Select(Convert.ToInt64)
                 .ToList();
 
-            slt.FilterExpression = o => !ignoredIDs.Contains(((Entity)o).ID);
-            slt.ViewParameters.First(v => v.Name == "studentRef").Value = Convert.ToInt64(args.Context["StudentRef"]);
+            var loadOptions = LoadOptions.With<Presentation>(p => p.Course);
+            var takenCourses = ServiceFactory.Create<IPresentationBusiness>()
+                .FetchAll(loadOptions)
+                .Where(p => ignoredIDs.Contains(p.ID))
+                .Select(p => p.Course.ID);
+
+            var studentRef = Convert.ToInt64(args.Context["StudentRef"]);
+            var disallowedIDs = ServiceFactory
+                .Create<IEnrollmentBusiness>()
+                .FetchAllowedPresentationsForStudent(studentRef)
+                .Where(p => takenCourses.Contains(p.Course.ID))
+                .Select(p => p.ID);
+
+            slt.FilterExpression = o => !disallowedIDs.Contains(((Entity)o).ID);
+            slt.ViewParameters.First(v => v.Name == "studentRef").Value = studentRef;
         }
     }
 }

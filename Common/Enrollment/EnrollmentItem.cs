@@ -30,6 +30,7 @@ namespace SystemGroup.General.UniversityManagement.Common
             base.SetDefaultValues();
 
             GradeState = EnrollmentItemGradeState.NotEntered;
+            Grade = -1;
         }
 
         public override void GetColumns(List<ColumnInfo> columns)

@@ -73,6 +73,7 @@
                             DataSourceID=".EnrollmentItems" Width="800px"
                             ID="grdEnrollmentItems" ValidationGroup="vgGrid">
                             <Columns>
+
                                 <sg:SgSelectorGridColumn PropertyName="CourseTitleText" headertext="Labels_Presentation">
                                     <EditItemTemplate>
                                         <sg:SgSelector ID="sltPresentation" runat="server"
@@ -92,21 +93,6 @@
                                         <sg:SgRequiredFieldValidator runat="server" ControlToValidate="sltPresentation"
                                             ErrorMessageKey="Messages_PresentationIsrequired" ValidationGroup="vgGrid" />
 
-                                    </EditItemTemplate>
-                                </sg:SgSelectorGridColumn>
-                                <sg:SgNumericGridColumn PropertyName="Grade" HeaderText="Labels_Grade">
-                                    <EditItemTemplate>
-                                        <sg:SgNumericTextBox runat="server" ID="numGrade" DataType="System.Single"
-                                            MinValue="0" MaxValue="20"
-                                            CbValue="{binding Grade}" />
-                                    </EditItemTemplate>
-                                </sg:SgNumericGridColumn>
-
-                                <sg:SgSelectorGridColumn PropertyName="GradeState" HeaderText="Labels_GradeState">
-                                    <EditItemTemplate>
-                                    <sg:SgStateSelector runat="server" ID="sltGradeState"
-                                        ComponentName="SystemGroup.General.UniversityManagement"
-                                        EntityName="EnrollmentItem" CbSelectedCode="{binding GradeState}" />
                                     </EditItemTemplate>
                                 </sg:SgSelectorGridColumn>
 
